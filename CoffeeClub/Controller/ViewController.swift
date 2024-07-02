@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-    
+    //ㅁㅇㄴㄹ
     lazy var orderBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("주문하기", for: .normal)
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         }, for: .touchUpInside)
         return btn
     }()
-
+    //ㅁㅇㄴㄹ
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,7 +31,6 @@ class ViewController: UIViewController {
         orderBtn.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
-
     }
 }
 
