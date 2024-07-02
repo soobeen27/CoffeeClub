@@ -15,6 +15,10 @@
 		F42A74292C33BFA800763AEA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74282C33BFA800763AEA /* Menu.swift */; };
 		F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A742A2C33BFBB00763AEA /* CustomMainView.swift */; };
 		F42A742E2C33C22700763AEA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F42A742D2C33C22700763AEA /* SnapKit */; };
+		F42A74322C33C7B300763AEA /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74312C33C7B300763AEA /* PaymentVC.swift */; };
+		F42A74362C33D4E800763AEA /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74352C33D4E800763AEA /* PaymentTableViewCell.swift */; };
+		F42A74382C33D57100763AEA /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74372C33D57100763AEA /* PaymentView.swift */; };
+		F42A743A2C33F70E00763AEA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74392C33F70E00763AEA /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		F42A741F2C33BACD00763AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F42A74282C33BFA800763AEA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		F42A742A2C33BFBB00763AEA /* CustomMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainView.swift; sourceTree = "<group>"; };
+		F42A74312C33C7B300763AEA /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		F42A74352C33D4E800763AEA /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
+		F42A74372C33D57100763AEA /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		F42A74392C33F70E00763AEA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 			children = (
 				F42A74112C33BACB00763AEA /* AppDelegate.swift */,
 				F42A74132C33BACB00763AEA /* SceneDelegate.swift */,
+				F42A74392C33F70E00763AEA /* Extension.swift */,
 				F42A74272C33BEF600763AEA /* Model */,
 				F42A74262C33BEF400763AEA /* View */,
 				F42A74252C33BEF100763AEA /* Controller */,
@@ -76,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				F42A74152C33BACB00763AEA /* ViewController.swift */,
+				F42A74312C33C7B300763AEA /* PaymentVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -84,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				F42A742A2C33BFBB00763AEA /* CustomMainView.swift */,
+				F42A74352C33D4E800763AEA /* PaymentTableViewCell.swift */,
+				F42A74372C33D57100763AEA /* PaymentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,8 +185,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */,
+				F42A74322C33C7B300763AEA /* PaymentVC.swift in Sources */,
+				F42A743A2C33F70E00763AEA /* Extension.swift in Sources */,
+				F42A74362C33D4E800763AEA /* PaymentTableViewCell.swift in Sources */,
 				F42A74162C33BACB00763AEA /* ViewController.swift in Sources */,
 				F42A74122C33BACB00763AEA /* AppDelegate.swift in Sources */,
+				F42A74382C33D57100763AEA /* PaymentView.swift in Sources */,
 				F42A74292C33BFA800763AEA /* Menu.swift in Sources */,
 				F42A74142C33BACB00763AEA /* SceneDelegate.swift in Sources */,
 			);
@@ -327,7 +343,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,7 +371,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
