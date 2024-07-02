@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */; };
+		E52540212C34423100A743B0 /* HeaderUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540202C34423100A743B0 /* HeaderUI.swift */; };
+		E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540242C34429A00A743B0 /* CoffeeClubModel.swift */; };
 		F42A74122C33BACB00763AEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74112C33BACB00763AEA /* AppDelegate.swift */; };
 		F42A74142C33BACB00763AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74132C33BACB00763AEA /* SceneDelegate.swift */; };
 		F42A74162C33BACB00763AEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74152C33BACB00763AEA /* ViewController.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E52540202C34423100A743B0 /* HeaderUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUI.swift; sourceTree = "<group>"; };
+		E52540242C34429A00A743B0 /* CoffeeClubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeClubModel.swift; path = CoffeeClub/Model/CoffeeClubModel.swift; sourceTree = SOURCE_ROOT; };
 		F42A740E2C33BACB00763AEA /* CoffeeClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42A74112C33BACB00763AEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F42A74132C33BACB00763AEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +97,8 @@
 		F42A74262C33BEF400763AEA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E52540202C34423100A743B0 /* HeaderUI.swift */,
+				E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */,
 				F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */,
 				F42A742A2C33BFBB00763AEA /* CustomMainView.swift */,
 			);
@@ -101,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				F42A74282C33BFA800763AEA /* Menu.swift */,
+				E52540242C34429A00A743B0 /* CoffeeClubModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,8 +192,11 @@
 			files = (
 				F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */,
 				F42A743A2C33F70E00763AEA /* Extension.swift in Sources */,
+				E52540212C34423100A743B0 /* HeaderUI.swift in Sources */,
 				F42A74162C33BACB00763AEA /* ViewController.swift in Sources */,
 				F42A74122C33BACB00763AEA /* AppDelegate.swift in Sources */,
+				E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */,
+				E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */,
 				F42A74292C33BFA800763AEA /* Menu.swift in Sources */,
 				F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */,
 				F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */,
