@@ -16,6 +16,8 @@
 		F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A742A2C33BFBB00763AEA /* CustomMainView.swift */; };
 		F42A742E2C33C22700763AEA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F42A742D2C33C22700763AEA /* SnapKit */; };
 		F42A743A2C33F70E00763AEA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74392C33F70E00763AEA /* Extension.swift */; };
+		F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC802C3438E2006EB88F /* PaymentVC.swift */; };
+		F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		F42A74282C33BFA800763AEA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		F42A742A2C33BFBB00763AEA /* CustomMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainView.swift; sourceTree = "<group>"; };
 		F42A74392C33F70E00763AEA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		F44FEC802C3438E2006EB88F /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				F42A74152C33BACB00763AEA /* ViewController.swift */,
+				F44FEC802C3438E2006EB88F /* PaymentVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -86,6 +91,7 @@
 		F42A74262C33BEF400763AEA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */,
 				F42A742A2C33BFBB00763AEA /* CustomMainView.swift */,
 			);
 			path = View;
@@ -180,6 +186,8 @@
 				F42A74162C33BACB00763AEA /* ViewController.swift in Sources */,
 				F42A74122C33BACB00763AEA /* AppDelegate.swift in Sources */,
 				F42A74292C33BFA800763AEA /* Menu.swift in Sources */,
+				F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */,
+				F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */,
 				F42A74142C33BACB00763AEA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
