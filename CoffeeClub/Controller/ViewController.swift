@@ -12,8 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // test git
-        // test git2
-        // test git3
+        
     }
 
 
