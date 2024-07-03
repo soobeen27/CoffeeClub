@@ -23,7 +23,7 @@ class HeaderUI: UIView {
         logoLabel.textAlignment = .center
         logoLabel.textColor = .white
         logoLabel.backgroundColor = .black
-        logoLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        logoLabel.font = UIFont(name: "VITRO CORE TTF", size: 30)
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
     
         // 탭 메뉴 버튼들
