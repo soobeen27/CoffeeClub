@@ -54,6 +54,6 @@ extension PaymentView: UITableViewDelegate, UITableViewDataSource {
 
 struct modalColor {
     private init() {}
-    static let text: UIColor = .white
-    static let background: UIColor = .black
+    static let text: UIColor = .black
+    static let background: UIColor = .white
 }
