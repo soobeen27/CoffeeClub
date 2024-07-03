@@ -78,7 +78,6 @@ class HeaderUI: UIView {
             
             // 헤더 뷰 높이
             headerView.heightAnchor.constraint(equalToConstant: 150)
-            
         ])
     
     }

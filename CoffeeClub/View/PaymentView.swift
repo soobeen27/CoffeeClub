@@ -11,7 +11,7 @@ class PaymentView: UIView {
     
     let tableView: UITableView = {
         let tv = UITableView()
-        tv.backgroundColor = .clear
+        tv.backgroundColor = modalColor.background
         tv.separatorStyle = .none
         tv.register(PaymentTableViewCell.self, forCellReuseIdentifier: "PaymentTableViewCell")
         return tv
@@ -31,7 +31,7 @@ class PaymentView: UIView {
 
     func setLayout() {
         self.addSubview(tableView)
-        self.backgroundColor = .brown
+        self.backgroundColor = modalColor.background
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 16, left: 8, bottom: 30, right: 8))
         }
@@ -50,4 +50,10 @@ extension PaymentView: UITableViewDelegate, UITableViewDataSource {
         cell.receipt = delegate?.addNewReceipt(index: indexPath.row)
         return cell
     }
+}
+
+struct modalColor {
+    private init() {}
+    static let text: UIColor = .white
+    static let background: UIColor = .black
 }
