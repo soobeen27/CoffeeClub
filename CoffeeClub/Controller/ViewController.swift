@@ -53,6 +53,18 @@ class ViewController: UIViewController {
 
         // 컬렉션뷰 셀 등록
         coffeeCollectionView.register(CoffeeCollectionViewCell.self, forCellWithReuseIdentifier: "CoffeeCollectionViewCell")
+        
+        // 탭 제스처 추가
+        coffeeCollectionView.isUserInteractionEnabled = true // 터치 이벤트 활성화
+        let detailPage = UITapGestureRecognizer(target: self, action: #selector(collectionViewTapped))
+        coffeeCollectionView.addGestureRecognizer(detailPage)
+    }
+    
+    @objc private func collectionViewTapped() {
+        // 모달 뷰컨트롤러 생성 및 설정
+        let modalVC = DetailPage()
+        modalVC.modalPresentationStyle = .custom
+        present(modalVC, animated: true, completion: nil)
     }
     
     // MARK: 오토레이아웃은 모아서!

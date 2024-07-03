@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		432FB5C92C3535ED00669BF9 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432FB5C82C3535ED00669BF9 /* DetailVC.swift */; };
 		E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */; };
 		E52540212C34423100A743B0 /* HeaderUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540202C34423100A743B0 /* HeaderUI.swift */; };
 		E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540242C34429A00A743B0 /* CoffeeClubModel.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		432FB5C82C3535ED00669BF9 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E52540202C34423100A743B0 /* HeaderUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUI.swift; sourceTree = "<group>"; };
 		E52540242C34429A00A743B0 /* CoffeeClubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeClubModel.swift; path = CoffeeClub/Model/CoffeeClubModel.swift; sourceTree = SOURCE_ROOT; };
@@ -92,6 +94,7 @@
 			children = (
 				F42A74152C33BACB00763AEA /* ViewController.swift */,
 				F44FEC802C3438E2006EB88F /* PaymentVC.swift */,
+				432FB5C82C3535ED00669BF9 /* DetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */,
 				F44FEC852C345378006EB88F /* PaymentView.swift in Sources */,
+				432FB5C92C3535ED00669BF9 /* DetailVC.swift in Sources */,
 				F42A743A2C33F70E00763AEA /* Extension.swift in Sources */,
 				E52540212C34423100A743B0 /* HeaderUI.swift in Sources */,
 				F42A74162C33BACB00763AEA /* ViewController.swift in Sources */,
