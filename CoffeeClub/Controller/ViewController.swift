@@ -140,7 +140,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.configure(coffee: coffee)
         return cell
     }
-    
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
