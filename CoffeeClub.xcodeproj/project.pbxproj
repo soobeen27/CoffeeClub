@@ -21,6 +21,7 @@
 		F42A743A2C33F70E00763AEA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74392C33F70E00763AEA /* Extension.swift */; };
 		F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC802C3438E2006EB88F /* PaymentVC.swift */; };
 		F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */; };
+		F44FEC852C345378006EB88F /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC842C345378006EB88F /* PaymentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		F42A74392C33F70E00763AEA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F44FEC802C3438E2006EB88F /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 		F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
+		F44FEC842C345378006EB88F /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */,
 				F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */,
 				F42A742A2C33BFBB00763AEA /* CustomMainView.swift */,
+				F44FEC842C345378006EB88F /* PaymentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */,
+				F44FEC852C345378006EB88F /* PaymentView.swift in Sources */,
 				F42A743A2C33F70E00763AEA /* Extension.swift in Sources */,
 				E52540212C34423100A743B0 /* HeaderUI.swift in Sources */,
 				F42A74162C33BACB00763AEA /* ViewController.swift in Sources */,
