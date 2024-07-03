@@ -27,7 +27,7 @@ class PaymentTableViewCell: UITableViewCell {
     let itemName: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 24, weight: .bold)
-        label.textColor = modalColor.text
+//        label.textColor = modalColor.text
         label.textAlignment = .right
         return label
     }()

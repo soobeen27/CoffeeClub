@@ -26,6 +26,7 @@
 		F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC802C3438E2006EB88F /* PaymentVC.swift */; };
 		F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */; };
 		F44FEC852C345378006EB88F /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC842C345378006EB88F /* PaymentView.swift */; };
+		F44FEC892C3572FC006EB88F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC882C3572FC006EB88F /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		F44FEC802C3438E2006EB88F /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 		F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		F44FEC842C345378006EB88F /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		F44FEC882C3572FC006EB88F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				F42A74282C33BFA800763AEA /* Menu.swift */,
 				E52540242C34429A00A743B0 /* CoffeeClubModel.swift */,
+				F44FEC882C3572FC006EB88F /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */,
 				E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */,
 				F42A74292C33BFA800763AEA /* Menu.swift in Sources */,
+				F44FEC892C3572FC006EB88F /* DataManager.swift in Sources */,
 				F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */,
 				F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */,
 				F42A74142C33BACB00763AEA /* SceneDelegate.swift in Sources */,

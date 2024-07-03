@@ -23,7 +23,7 @@ extension CoffeeClubList {
         CoffeeClubList(imageName: "coffee1", menuName: "아메리카노", menuPrice: 5000, type: "coffee"),
         CoffeeClubList(imageName: "coffee1", menuName: "아메리카노", menuPrice: 5000, type: "coffee")
     ]
-    
+
     //상단 탭바 눌렀을 때 
     static func coffeeOnly() -> [CoffeeClubList] {
         var tap = list

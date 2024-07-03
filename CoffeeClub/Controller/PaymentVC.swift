@@ -17,6 +17,7 @@ class PaymentVC: UIViewController {
             sheetPresentationController.detents = [.medium()]
         }
         paymentView.delegate = self
+        
     }
     override func loadView() {
         super.loadView()
