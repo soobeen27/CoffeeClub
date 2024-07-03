@@ -12,7 +12,7 @@ class PaymentTableViewCell: UITableViewCell {
     var receipt: Receipt? {
         didSet {
             guard let receipt = receipt else { return }
-            itemName.text = "\(receipt.menuName) × \(receipt.amount)"
+            itemName.text = "\(receipt.menuName)"
             itemPrice.text = (receipt.price * receipt.amount).numberFormat()
             stepAmount.value = receipt.amount
         }
@@ -26,7 +26,7 @@ class PaymentTableViewCell: UITableViewCell {
     
     let itemName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16)
+        label.font = .systemFont(ofSize: 24, weight: .bold)
         label.textColor = modalColor.text
         label.textAlignment = .right
         return label
@@ -38,15 +38,6 @@ class PaymentTableViewCell: UITableViewCell {
         label.textColor = modalColor.text
         label.textAlignment = .right
         return label
-    }()
-    
-    lazy var horizontalItemStackView: UIStackView = {
-        let stv = UIStackView(arrangedSubviews: [itemName ,stepAmount,itemPrice])
-        stv.axis = .horizontal
-        stv.spacing = 24
-        stv.alignment = .trailing
-        stv.distribution = .fill
-        return stv
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -61,22 +52,21 @@ class PaymentTableViewCell: UITableViewCell {
     }
     func setLayout() {
         self.backgroundColor = .clear
-        self.contentView.addSubview(horizontalItemStackView)
-        
-        horizontalItemStackView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(10)
-            $0.height.equalTo(stepAmount.snp.height)
+        [stepAmount, itemName, itemPrice].forEach {
+            self.contentView.addSubview($0)
+        }
+        itemName.snp.makeConstraints { 
+            $0.top.equalToSuperview().inset(16)
+            $0.trailing.equalToSuperview().offset(-16)
         }
         itemPrice.snp.makeConstraints {
-            $0.width.equalTo(self.frame.width / 4)
-            $0.height.equalTo(stepAmount.snp.height)
-        }
-        itemName.snp.makeConstraints {
-            $0.height.equalTo(stepAmount.snp.height)
+            $0.top.equalTo(itemName.snp.bottom).offset(8)
+            $0.trailing.equalToSuperview().offset(-16)
         }
         stepAmount.snp.makeConstraints {
-            $0.width.equalTo(self.frame.width / 4)
-            
+            $0.top.equalTo(itemPrice.snp.bottom).offset(24)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.bottom.equalToSuperview().offset(-16)
         }
     }
 }
@@ -105,9 +95,9 @@ class CustomStepper: UIView {
         return btn
     }()
     
-    private let numLabel: UILabel = {
+    private lazy var numLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = textColor
         label.backgroundColor = .clear
         label.textAlignment = .center
         return label
@@ -122,7 +112,7 @@ class CustomStepper: UIView {
     }()
     init() {
         self.value = 0
-        self.textColor = .white
+        self.textColor = .black
         super.init(frame: .zero)
         setLayout()
         minusBtn.addAction(UIAction { _ in
@@ -132,17 +122,10 @@ class CustomStepper: UIView {
             self.value += 1
         }, for: .touchDown)
     }
-    init(value: Int, color: UIColor) {
-        self.value = value
-        self.textColor = color
-        super.init(frame: .zero)
-        setLayout()
-    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     private func setLayout() {
-        self.backgroundColor = .blue
         hSV.translatesAutoresizingMaskIntoConstraints = false
         minusBtn.translatesAutoresizingMaskIntoConstraints = false
         plusBtn.translatesAutoresizingMaskIntoConstraints = false
