@@ -8,7 +8,6 @@ import UIKit
 import SnapKit
 
 class PaymentVC: UIViewController {
-    
     var paymentView: PaymentView!
     
     override func viewDidLoad() {
