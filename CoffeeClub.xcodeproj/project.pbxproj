@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43805EA22C361417008379B8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 43805EA12C361417008379B8 /* SnapKit */; };
 		C2AAD0692C3530D70020D9D3 /* VITRO CORE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0652C3530D70020D9D3 /* VITRO CORE TTF.ttf */; };
 		C2AAD06A2C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */; };
 		C2AAD06B2C3530D70020D9D3 /* VITRO PRIDE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */; };
@@ -21,7 +22,6 @@
 		F42A741E2C33BACD00763AEA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F42A741D2C33BACD00763AEA /* Base */; };
 		F42A74292C33BFA800763AEA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74282C33BFA800763AEA /* Menu.swift */; };
 		F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A742A2C33BFBB00763AEA /* CustomMainView.swift */; };
-		F42A742E2C33C22700763AEA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F42A742D2C33C22700763AEA /* SnapKit */; };
 		F42A743A2C33F70E00763AEA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74392C33F70E00763AEA /* Extension.swift */; };
 		F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC802C3438E2006EB88F /* PaymentVC.swift */; };
 		F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */; };
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F42A742E2C33C22700763AEA /* SnapKit in Frameworks */,
+				43805EA22C361417008379B8 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +157,7 @@
 			);
 			name = CoffeeClub;
 			packageProductDependencies = (
-				F42A742D2C33C22700763AEA /* SnapKit */,
+				43805EA12C361417008379B8 /* SnapKit */,
 			);
 			productName = CoffeeClub;
 			productReference = F42A740E2C33BACB00763AEA /* CoffeeClub.app */;
@@ -460,7 +460,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F42A742D2C33C22700763AEA /* SnapKit */ = {
+		43805EA12C361417008379B8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F42A742C2C33C22700763AEA /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
