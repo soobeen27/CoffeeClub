@@ -12,7 +12,6 @@ class PaymentTableViewCell: UITableViewCell {
     var receipt: Receipt? {
         didSet {
             guard let receipt = receipt else { return }
-//            itemName.text = "\(receipt.menuName) × \(receipt.amount)    \(receipt.price) won"
             itemName.text = "\(receipt.menuName) × \(receipt.amount)"
             itemPrice.text = (receipt.price * receipt.amount).numberFormat()
         }
@@ -53,7 +52,6 @@ class PaymentTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     func setLayout() {
@@ -66,10 +64,5 @@ class PaymentTableViewCell: UITableViewCell {
         itemPrice.snp.makeConstraints {
             $0.width.equalTo(self.frame.width / 4)
         }
-//        self.addSubview(itemName)
-//        itemName.snp.makeConstraints {
-//            $0.edges.equalToSuperview().inset(8)
-//        }
     }
-
 }
