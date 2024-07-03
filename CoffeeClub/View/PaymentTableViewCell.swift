@@ -12,9 +12,7 @@ class PaymentTableViewCell: UITableViewCell {
     var receipt: Receipt? {
         didSet {
             guard let receipt = receipt else { return }
-            //            itemName.text = "\(receipt.menuName) × \(receipt.amount)    \(receipt.price) won"
-//            itemName.text = "\(receipt.menuName) × \(receipt.amount)"
-            itemName.text = "\(receipt.menuName)"
+            itemName.text = "\(receipt.menuName) × \(receipt.amount)"
             itemPrice.text = (receipt.price * receipt.amount).numberFormat()
             stepAmount.value = receipt.amount
         }
@@ -60,8 +58,6 @@ class PaymentTableViewCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     func setLayout() {
         self.backgroundColor = .clear
@@ -83,7 +79,6 @@ class PaymentTableViewCell: UITableViewCell {
             
         }
     }
-    
 }
 
 class CustomStepper: UIView {

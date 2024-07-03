@@ -23,7 +23,6 @@ class PaymentView: UIView {
         setLayout()
         tableView.dataSource = self
         tableView.delegate = self
-
     }
     
     required init?(coder: NSCoder) {
