@@ -41,10 +41,12 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
         //커피 이름
         menuNameLabel = UILabel()
         menuNameLabel.textAlignment = .center
+        menuNameLabel.textColor = .black
 
         //커피 가격
         menuPriceLabel = UILabel()
         menuPriceLabel.textAlignment = .center
+        menuNameLabel.textColor = .black
     }
     
     func setLayout() {
