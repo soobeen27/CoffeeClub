@@ -8,46 +8,36 @@ import UIKit
 import SnapKit
 
 class PaymentVC: UIViewController {
-
-    let tableView = UITableView()
-
-
+    
+    var paymentView: PaymentView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let sheetPresentationController = sheetPresentationController {
             sheetPresentationController.detents = [.medium()]
         }
-        setupTableView()
-        setLayout()
+        paymentView.delegate = self
     }
-    func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.backgroundColor = .clear
-        tableView.separatorStyle = .none
-        tableView.register(PaymentTableViewCell.self, forCellReuseIdentifier: "PaymentTableViewCell")
-    }
-    
-    func setLayout() {
-        view.addSubview(tableView)
-        view.backgroundColor = .brown
-        tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 16, left: 8, bottom: 30, right: 8))
-        }
+    override func loadView() {
+        super.loadView()
+        paymentView = PaymentView(frame: self.view.frame)
+        self.view = paymentView
     }
 }
 
-extension PaymentVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension PaymentVC: ReceiptDelegate {
+    func receiptCount() -> Int {
         return ShoppingList.nameAndPrice.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
-        cell.selectionStyle = .none
-        cell.receipt = ShoppingList.nameAndPrice[indexPath.row]
-        return cell
+    func addNewReceipt(index: Int) -> Receipt{
+        return ShoppingList.nameAndPrice[index]
     }
+}
+
+protocol ReceiptDelegate: AnyObject  {
+    func addNewReceipt(index: Int) -> Receipt
+    func receiptCount() -> Int
 }
 
 struct Receipt {

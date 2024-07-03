@@ -15,8 +15,7 @@ class HeaderUI: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+
     func setupHeader() {
         // 상단 로고 이미지 뷰
         let logoLabel = UILabel()
@@ -26,7 +25,7 @@ class HeaderUI: UIView {
         logoLabel.backgroundColor = .black
         logoLabel.font = UIFont.boldSystemFont(ofSize: 30)
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+    
         // 탭 메뉴 버튼들
         let tabButton1 = UILabel()
         tabButton1.text = "tab1"
@@ -81,9 +80,7 @@ class HeaderUI: UIView {
             headerView.heightAnchor.constraint(equalToConstant: 150)
             
         ])
-        
-        
-    }
     
+    }
 
 }
