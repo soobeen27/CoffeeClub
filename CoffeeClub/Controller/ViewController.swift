@@ -18,6 +18,11 @@ class ViewController: UIViewController {
     let coffeeList: [CoffeeClubList] = CoffeeClubList.list
     let orderButton = UIButton(type: .system)
     var headerView = HeaderUI()
+    var orderCount: Int = 0 {
+        didSet {
+            orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +34,7 @@ class ViewController: UIViewController {
     
     func setupOrderArea() {
         // 아래 주문 버튼 영역
-        orderButton.setTitle("주문하기", for: .normal)
+        orderButton.setTitle("주문하기\(orderCount)", for: .normal)
         orderButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         orderButton.backgroundColor = .black
         orderButton.setTitleColor(.white, for: .normal)
@@ -89,7 +94,16 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoffeeCollectionViewCell", for: indexPath) as! CoffeeCollectionViewCell
         let coffee = coffeeList[indexPath.row]
         cell.configure(coffee: coffee)
+        cell.delegate = self
+        cell.index = indexPath.row
         return cell
+    }
+}
+
+extension ViewController: CoffeeCollectionViewCellDelegate {
+    func didTapCoffeeImage(at index: Int) {
+        orderCount += 1
+        print("order Count: \(orderCount)")
     }
 }
 

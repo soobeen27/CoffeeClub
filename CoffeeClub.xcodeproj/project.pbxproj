@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2AAD0692C3530D70020D9D3 /* VITRO CORE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0652C3530D70020D9D3 /* VITRO CORE TTF.ttf */; };
+		C2AAD06A2C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */; };
+		C2AAD06B2C3530D70020D9D3 /* VITRO PRIDE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */; };
+		C2AAD06D2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */; };
 		E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */; };
 		E52540212C34423100A743B0 /* HeaderUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540202C34423100A743B0 /* HeaderUI.swift */; };
 		E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540242C34429A00A743B0 /* CoffeeClubModel.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2AAD0652C3530D70020D9D3 /* VITRO CORE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO CORE TTF.ttf"; sourceTree = "<group>"; };
+		C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO INSPIRE TTF.ttf"; sourceTree = "<group>"; };
+		C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO PRIDE TTF.ttf"; sourceTree = "<group>"; };
+		C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E52540202C34423100A743B0 /* HeaderUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUI.swift; sourceTree = "<group>"; };
 		E52540242C34429A00A743B0 /* CoffeeClubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeClubModel.swift; path = CoffeeClub/Model/CoffeeClubModel.swift; sourceTree = SOURCE_ROOT; };
@@ -55,6 +63,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2AAD0682C3530D70020D9D3 /* VITRO_Font_TTF */ = {
+			isa = PBXGroup;
+			children = (
+				C2AAD0652C3530D70020D9D3 /* VITRO CORE TTF.ttf */,
+				C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */,
+				C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */,
+			);
+			path = VITRO_Font_TTF;
+			sourceTree = "<group>";
+		};
 		F42A74052C33BACB00763AEA = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +101,7 @@
 				F42A741A2C33BACD00763AEA /* Assets.xcassets */,
 				F42A741C2C33BACD00763AEA /* LaunchScreen.storyboard */,
 				F42A741F2C33BACD00763AEA /* Info.plist */,
+				C2AAD0682C3530D70020D9D3 /* VITRO_Font_TTF */,
 			);
 			path = CoffeeClub;
 			sourceTree = "<group>";
@@ -104,6 +123,7 @@
 				F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */,
 				F42A742A2C33BFBB00763AEA /* CustomMainView.swift */,
 				F44FEC842C345378006EB88F /* PaymentView.swift */,
+				C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,7 +202,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F42A741B2C33BACD00763AEA /* Assets.xcassets in Resources */,
+				C2AAD06A2C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf in Resources */,
 				F42A741E2C33BACD00763AEA /* Base in Resources */,
+				C2AAD06B2C3530D70020D9D3 /* VITRO PRIDE TTF.ttf in Resources */,
+				C2AAD0692C3530D70020D9D3 /* VITRO CORE TTF.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +228,7 @@
 				F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */,
 				F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */,
 				F42A74142C33BACB00763AEA /* SceneDelegate.swift in Sources */,
+				C2AAD06D2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

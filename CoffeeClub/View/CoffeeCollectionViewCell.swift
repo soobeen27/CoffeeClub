@@ -10,14 +10,26 @@ import SnapKit
 
 class CoffeeCollectionViewCell: UICollectionViewCell {
     
+    weak var delegate: CoffeeCollectionViewCellDelegate?
     var coffeeImage: UIImageView!
     var menuNameLabel: UILabel!
     var menuPriceLabel: UILabel!
+    var index: Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLabels()
         setLayout()
+        
+        //커피 이미지 탭을 감지하여 제스처 인식기
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleCoffeeTap))
+        coffeeImage.isUserInteractionEnabled = true
+        coffeeImage.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
+    
+    @objc func handleCoffeeTap() {
+        delegate?.didTapCoffeeImage(at: index)
     }
     
     func setLabels() {
@@ -29,10 +41,12 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
         //커피 이름
         menuNameLabel = UILabel()
         menuNameLabel.textAlignment = .center
+        menuNameLabel.textColor = .black
 
         //커피 가격
         menuPriceLabel = UILabel()
         menuPriceLabel.textAlignment = .center
+        menuNameLabel.textColor = .black
     }
     
     func setLayout() {
@@ -63,6 +77,7 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
     func configure(coffee: CoffeeClubList) {
         menuNameLabel.text = coffee.menuName
         menuPriceLabel.text = coffee.menuPrice.numberFormat()
+        coffeeImage.image = UIImage(named: coffee.imageName)
     }
 }
 
