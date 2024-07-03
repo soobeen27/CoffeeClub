@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class PaymentView: UIView {
     
@@ -16,6 +17,42 @@ class PaymentView: UIView {
         tv.register(PaymentTableViewCell.self, forCellReuseIdentifier: "PaymentTableViewCell")
         return tv
     }()
+    let productPrice: UILabel = {
+        let label = UILabel()
+        label.text = "상품금액"
+        label.font = .systemFont(ofSize: 20)
+        label.textColor = .black
+        label.textAlignment = .left
+        return label
+    }()
+    
+    lazy var totalPrice: UILabel = {
+        let label = UILabel()
+        label.text = "50,000원"
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.textColor = .red
+        label.textAlignment = .right
+        return label
+    }()
+    
+    lazy var hSTV: UIStackView = {
+       let st = UIStackView(arrangedSubviews: [productPrice, totalPrice])
+        st.axis = .horizontal
+        st.distribution = .fillEqually
+        return st
+    }()
+    
+    
+    
+    let paymentBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("결제하기", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = .black
+        return btn
+    }()
+    
+
     weak var delegate: ReceiptDelegate?
     
     override init(frame: CGRect) {
@@ -30,10 +67,27 @@ class PaymentView: UIView {
     }
 
     func setLayout() {
-        self.addSubview(tableView)
+        [tableView, paymentBtn, hSTV].forEach {
+            self.addSubview($0)
+        }
+        paymentBtn.layer.cornerRadius = 25
+
         self.backgroundColor = modalColor.background
         tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 16, left: 8, bottom: 30, right: 8))
+            $0.leading.trailing.equalToSuperview().inset(0)
+            $0.top.equalToSuperview().offset(16)
+        }
+        hSTV.snp.makeConstraints {
+            $0.top.equalTo(tableView.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(26)
+            $0.height.equalTo(50)
+        }
+        
+        paymentBtn.snp.makeConstraints {
+            $0.top.equalTo(hSTV.snp.bottom).offset(10)
+            $0.leading.trailing.equalToSuperview().inset(30)
+            $0.bottom.equalToSuperview().offset(-10)
+            $0.height.equalTo(50)
         }
     }
 }
