@@ -47,6 +47,7 @@ class PaymentView: UIView {
     let paymentBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("결제하기", for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
         btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = .black
         return btn
