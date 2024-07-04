@@ -18,11 +18,11 @@ class CategoriseChangeButton: NSObject {
     @objc func buttonTapped(_ sender: UIButton) {
         guard let vc = viewController else { return }
         switch sender.tag {
-        case 1:
-            vc.coffeeList = CoffeeClubList.categories(type: "coffee")
         case 2:
-            vc.coffeeList = CoffeeClubList.categories(type: "decaffeine")
+            vc.coffeeList = CoffeeClubList.categories(type: "coffee")
         case 3:
+            vc.coffeeList = CoffeeClubList.categories(type: "decaffeine")
+        case 4:
             vc.coffeeList = CoffeeClubList.categories(type: "dessert")
         default:
             vc.coffeeList = CoffeeClubList.list
