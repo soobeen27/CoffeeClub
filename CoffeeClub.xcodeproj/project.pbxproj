@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45B55C302C35C15300A711E4 /* CategoriseChangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B55C2F2C35C15300A711E4 /* CategoriseChangeButton.swift */; };
 		C2AAD0692C3530D70020D9D3 /* VITRO CORE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0652C3530D70020D9D3 /* VITRO CORE TTF.ttf */; };
 		C2AAD06A2C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */; };
 		C2AAD06B2C3530D70020D9D3 /* VITRO PRIDE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45B55C2F2C35C15300A711E4 /* CategoriseChangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriseChangeButton.swift; sourceTree = "<group>"; };
 		C2AAD0652C3530D70020D9D3 /* VITRO CORE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO CORE TTF.ttf"; sourceTree = "<group>"; };
 		C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO INSPIRE TTF.ttf"; sourceTree = "<group>"; };
 		C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO PRIDE TTF.ttf"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				F42A74152C33BACB00763AEA /* ViewController.swift */,
 				F44FEC802C3438E2006EB88F /* PaymentVC.swift */,
+				45B55C2F2C35C15300A711E4 /* CategoriseChangeButton.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				F42A743A2C33F70E00763AEA /* Extension.swift in Sources */,
 				E52540212C34423100A743B0 /* HeaderUI.swift in Sources */,
 				F42A74162C33BACB00763AEA /* ViewController.swift in Sources */,
+				45B55C302C35C15300A711E4 /* CategoriseChangeButton.swift in Sources */,
 				F42A74122C33BACB00763AEA /* AppDelegate.swift in Sources */,
 				E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */,
 				E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */,

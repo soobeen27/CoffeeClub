@@ -7,14 +7,15 @@
 import UIKit
 import SnapKit
 
-#Preview {
+/*#Preview {
     let name = ViewController()
     return name
-}
+}*/
 
 class ViewController: UIViewController {
+    var categoriseChangeButton:CategoriseChangeButton?
     var coffeeCollectionView: UICollectionView!
-    let coffeeList: [CoffeeClubList] = CoffeeClubList.list
+    var coffeeList: [CoffeeClubList] = CoffeeClubList.list
     let orderButton = UIButton(type: .system)
     var headerView = HeaderUI()
     var orderCount: Int = 0 {
@@ -34,9 +35,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupHeader()
         setupCollectionView()
         setupOrderArea()
         setLayout()
+    }
+    
+    func setupHeader() {
+        headerView = HeaderUI(frame: .zero)
+        view.addSubview(headerView)
+        categoriseChangeButton = CategoriseChangeButton(viewController: self)
+        headerView.categoriseChangeButton = categoriseChangeButton
+        headerView.setupHeader()
     }
     
     func setupOrderArea() {
@@ -65,6 +75,7 @@ class ViewController: UIViewController {
         
         // 컬렉션뷰 셀 등록
         coffeeCollectionView.register(CoffeeCollectionViewCell.self, forCellWithReuseIdentifier: "CoffeeCollectionViewCell")
+        view.addSubview(coffeeCollectionView)
     }
     
     // MARK: 오토레이아웃은 모아서!
