@@ -36,33 +36,41 @@ class HeaderUI: UIView {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
     
         // 탭 메뉴 버튼들
+        let allButton = UIButton(type: .system)
+        allButton.setTitle("All", for: .normal)
+        allButton.setTitleColor(.black, for: .normal)
+        allButton.backgroundColor = .white
+        allButton.tag = 1
+        allButton.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
+        
         let tabButton1 = UIButton(type: .system)
         tabButton1.setTitle("커피", for: .normal)
-        tabButton1.setTitleColor(.white, for: .normal)
-        tabButton1.backgroundColor = .black
-        tabButton1.tag = 1
+        tabButton1.setTitleColor(.black, for: .normal)
+        tabButton1.backgroundColor = .white
+        tabButton1.tag = 2
         tabButton1.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
         
         let tabButton2 = UIButton(type: .system)
         tabButton2.setTitle("디카페인", for: .normal)
-        tabButton2.setTitleColor(.white, for: .normal)
-        tabButton2.backgroundColor = .black
-        tabButton2.tag = 2
+        tabButton2.setTitleColor(.black, for: .normal)
+        tabButton2.backgroundColor = .white
+        tabButton2.tag = 3
         tabButton2.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
         
         let tabButton3 = UIButton(type: .system)
         tabButton3.setTitle("디저트", for: .normal)
-        tabButton3.setTitleColor(.white, for: .normal)
-        tabButton3.backgroundColor = .black
-        tabButton3.tag = 3
+        tabButton3.setTitleColor(.black, for: .normal)
+        tabButton3.backgroundColor = .white
+        tabButton3.tag = 4
         tabButton3.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
         
         // 스택 뷰에 버튼 추가
-        let stackView = UIStackView(arrangedSubviews: [tabButton1, tabButton2, tabButton3])
+        let stackView = UIStackView(arrangedSubviews: [allButton, tabButton1, tabButton2, tabButton3])
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
         stackView.spacing = 10
+        stackView.backgroundColor = .white
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // 헤더 뷰 생성
@@ -96,8 +104,8 @@ class HeaderUI: UIView {
             
             // 스택 뷰
             stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
-            stackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20),
+            stackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
             
             // 헤더 뷰 높이
