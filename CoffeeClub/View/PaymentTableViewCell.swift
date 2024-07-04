@@ -1,4 +1,3 @@
-//
 //  CustomPaymentTableViewCell.swift
 //  CoffeeClub
 //

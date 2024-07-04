@@ -1,4 +1,3 @@
-//
 //  ViewController.swift
 //  CoffeeClub
 //
@@ -20,7 +19,11 @@ class ViewController: UIViewController {
     var headerView: HeaderUI!
     var orderCount: Int = 0 {
         didSet {
-            orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
+            if orderCount == 0 {
+                           orderButton.setTitle("주문하기", for: .normal)
+                       } else {
+                           orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
+                       }
         }
     }// 수정하기
     
@@ -38,6 +41,16 @@ class ViewController: UIViewController {
         setupCollectionView()
         setupOrderArea()
         setLayout()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateOrderCount), name: NSNotification.Name("amountChanged"), object: nil)
+        updateOrderCount()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func updateOrderCount() {
+        orderCount = CoffeeClubList.list.reduce(0) { $0 + $1.amount }
     }
     
     // 카테고리 변경 탭을 헤더 뷰에 연결
@@ -51,7 +64,7 @@ class ViewController: UIViewController {
     
     func setupOrderArea() {
         // 아래 주문 버튼 영역
-        orderButton.setTitle("주문하기\(orderCount)", for: .normal)
+        orderButton.setTitle("주문하기", for: .normal)
         orderButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         orderButton.backgroundColor = UIColor(hex: "#cd2323")
         orderButton.setTitleColor(.white, for: .normal)

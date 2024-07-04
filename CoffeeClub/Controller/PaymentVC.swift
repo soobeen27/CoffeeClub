@@ -1,4 +1,3 @@
-//
 //  PaymentVC.swift
 //  CoffeeClub
 //
@@ -15,7 +14,7 @@ class PaymentVC: UIViewController {
         if let sheetPresentationController = sheetPresentationController {
             sheetPresentationController.detents = [.medium()]
         }
-        paymentView.delegate = self        
+        paymentView.delegate = self
     }
     override func loadView() {
         super.loadView()
@@ -35,6 +34,7 @@ extension PaymentVC: ShoppingListDelegate {
     
     func stepAmount(data: CoffeeClubList, oper: Oper) {
         CoffeeClubList.stepAmount(oper: oper, coffeeClubList: data)
+        NotificationCenter.default.post(name: NSNotification.Name("amountChanged"), object: nil)
     }
 }
 protocol ShoppingListDelegate: AnyObject  {
