@@ -15,8 +15,7 @@ class PaymentVC: UIViewController {
         if let sheetPresentationController = sheetPresentationController {
             sheetPresentationController.detents = [.medium()]
         }
-        paymentView.delegate = self
-        
+        paymentView.delegate = self        
     }
     override func loadView() {
         super.loadView()
@@ -25,34 +24,22 @@ class PaymentVC: UIViewController {
     }
 }
 
-extension PaymentVC: ReceiptDelegate {
-    func receiptCount() -> Int {
-        return ShoppingList.nameAndPrice.count
+extension PaymentVC: ShoppingListDelegate {
+    func shoppingListCount() -> Int {
+        return CoffeeClubList.getShoppingList().count
     }
     
-    func addNewReceipt(index: Int) -> Receipt{
-        return ShoppingList.nameAndPrice[index]
+    func addShoppingList(index: Int) -> CoffeeClubList{
+        return CoffeeClubList.getShoppingList()[index]
+    }
+    
+    func stepAmount(data: CoffeeClubList, oper: Oper) {
+        CoffeeClubList.stepAmount(oper: oper, coffeeClubList: data)
     }
 }
 
-protocol ReceiptDelegate: AnyObject  {
-    func addNewReceipt(index: Int) -> Receipt
-    func receiptCount() -> Int
-}
-
-struct Receipt {
-    let menuName: String
-    let price: Int
-    let amount: Int
-}
-
-struct ShoppingList {
-    static let nameAndPrice: [Receipt] = [
-        Receipt(menuName: "Americano", price: 1500, amount: 1),
-        Receipt(menuName: "Caffe Latte", price: 2000, amount: 2),
-        Receipt(menuName: "Cappuccino", price: 2000, amount: 3),
-        Receipt(menuName: "Espresso", price: 1000, amount: 4),
-        Receipt(menuName: "Caramel Macchiato", price: 2500, amount: 5),
-        Receipt(menuName: "affogato", price: 3000, amount: 6),
-        ]
+protocol ShoppingListDelegate: AnyObject  {
+    func addShoppingList(index: Int) -> CoffeeClubList
+    func shoppingListCount() -> Int
+    func stepAmount(data: CoffeeClubList, oper: Oper)
 }

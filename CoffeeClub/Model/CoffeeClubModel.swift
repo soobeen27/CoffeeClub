@@ -43,4 +43,25 @@ extension CoffeeClubList {
             $0.amount > 0
         }
     }
+    
+    static func getTotalPrice() -> Int {
+        var totalPrice: Int = 0
+        getShoppingList().forEach {
+            totalPrice += ($0.menuPrice * $0.amount)
+        }
+        return totalPrice
+    }
+    
+    static func stepAmount(oper: Oper, coffeeClubList: CoffeeClubList) {
+        for i in 0..<list.count {
+            if list[i].menuName == coffeeClubList.menuName {
+                oper == .plus ? (list[i].amount += 1) : (list[i].amount -= 1)
+            }
+        }
+    }
+}
+
+enum Oper {
+    case plus
+    case minus
 }

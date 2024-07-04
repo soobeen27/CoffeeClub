@@ -13,7 +13,6 @@ class PaymentView: UIView {
     let tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = modalColor.background
-        tv.separatorStyle = .none
         tv.register(PaymentTableViewCell.self, forCellReuseIdentifier: "PaymentTableViewCell")
         return tv
     }()
@@ -29,7 +28,7 @@ class PaymentView: UIView {
     
     lazy var totalPrice: UILabel = {
         let label = UILabel()
-        label.text = "50,000원"
+        label.text = CoffeeClubList.getTotalPrice().numberFormat()
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textColor = .red
         label.textAlignment = .right
@@ -45,20 +44,30 @@ class PaymentView: UIView {
     
     let paymentBtn: UIButton = {
         let btn = UIButton()
+//        btn.setTitle("결제하기", for: .normal)
+//        btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
+//        btn.setTitleColor(.white, for: .normal)
+//        btn.backgroundColor = .black
         btn.setTitle("결제하기", for: .normal)
-        btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        btn.backgroundColor = UIColor(hex: "#cd2323")
         btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = .black
         return btn
     }()
     
-    weak var delegate: ReceiptDelegate?
+    weak var delegate: ShoppingListDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayout()
         tableView.dataSource = self
         tableView.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(amountChanged(notification:)), name: NSNotification.Name("amountChanged"), object: nil)
+
+    }
+    @objc func amountChanged(notification: Notification) {
+        totalPrice.text = CoffeeClubList.getTotalPrice().numberFormat()
+        tableView.reloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -69,7 +78,7 @@ class PaymentView: UIView {
         [tableView, paymentBtn, hSTV].forEach {
             self.addSubview($0)
         }
-        paymentBtn.layer.cornerRadius = 25
+        paymentBtn.layer.cornerRadius = 10
 
         self.backgroundColor = modalColor.background
         tableView.snp.makeConstraints {
@@ -84,8 +93,8 @@ class PaymentView: UIView {
         
         paymentBtn.snp.makeConstraints {
             $0.top.equalTo(hSTV.snp.bottom).offset(10)
-            $0.leading.trailing.equalToSuperview().inset(30)
-            $0.bottom.equalToSuperview().offset(-10)
+            $0.leading.trailing.equalToSuperview().inset(10)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-10)
             $0.height.equalTo(50)
         }
     }
@@ -93,14 +102,14 @@ class PaymentView: UIView {
 
 extension PaymentView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = delegate?.receiptCount() else { return 0 }
+        guard let count = delegate?.shoppingListCount() else { return 0 }
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
         cell.selectionStyle = .none
-        cell.receipt = delegate?.addNewReceipt(index: indexPath.row)
+        cell.coffeeClubList = delegate?.addShoppingList(index: indexPath.row)
         return cell
     }
 }
