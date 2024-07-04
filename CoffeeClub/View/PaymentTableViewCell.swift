@@ -15,7 +15,7 @@ class PaymentTableViewCell: UITableViewCell {
             itemName.text = "\(coffeeClubList.menuName)"
             itemPrice.text = (coffeeClubList.menuPrice * coffeeClubList.amount).numberFormat()
             amountLabel.text = String(coffeeClubList.amount)
-            productImageView.image = UIImage(named: coffeeClubList.imageName)   
+            productImageView.image = UIImage(named: coffeeClubList.imageName)
         }
     }
     lazy var productImageView: UIImageView = {
