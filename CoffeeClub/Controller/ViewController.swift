@@ -7,10 +7,10 @@
 import UIKit
 import SnapKit
 
-#Preview {
+/* #Preview {
     let name = ViewController()
     return name
-}
+} */
 
 class ViewController: UIViewController {
     var categoriseChangeButton:CategoriseChangeButton?

@@ -17,6 +17,9 @@ class CategoriseChangeButton: NSObject {
     
     @objc func buttonTapped(_ sender: UIButton) {
         guard let vc = viewController else { return }
+        
+        vc.headerView.thisButtonTap(selectedButton: sender)
+        
         switch sender.tag {
         case 2:
             vc.coffeeList = CoffeeClubList.categories(type: "coffee")
