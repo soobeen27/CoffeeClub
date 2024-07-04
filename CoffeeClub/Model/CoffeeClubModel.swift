@@ -31,7 +31,7 @@ extension CoffeeClubList {
         CoffeeClubList(imageName: "nutmeg_latte", menuName: "너트멕 라테", menuPrice: 5000, type: "coffee"),
         CoffeeClubList(imageName: "iced_caramel_vanila", menuName: "아이스 캬라멜 라테", menuPrice: 5000, type: "coffee")
     ]
-    //상단 탭바 눌렀을 때 
+    //상단 탭바 눌렀을 때
     static func categories(type: String) -> [CoffeeClubList] {
         var tap = list
         tap.removeAll { $0.type != type }

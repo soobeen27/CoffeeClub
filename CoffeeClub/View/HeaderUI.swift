@@ -9,12 +9,15 @@ import UIKit
 
 class HeaderUI: UIView {
     var categoriseChangeButton: CategoriseChangeButton?
+    var searchBar: UISearchBar!
     var buttons: [UIButton] = []
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupHeader()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -30,13 +33,13 @@ class HeaderUI: UIView {
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // 서치바
-        let searchBar = UISearchBar()
+        searchBar = UISearchBar()
         searchBar.placeholder = "검색어를 입력하세요"
         searchBar.searchTextField.backgroundColor = .white
         searchBar.searchBarStyle = .minimal // 선택적으로 검색바 스타일 설정
         searchBar.layer.backgroundColor = UIColor(hex: "#cd2323").cgColor
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-    
+        
         // 탭 메뉴 버튼들
         let allButton = UIButton(type: .system)
         allButton.setTitle("ALL", for: .normal)
@@ -111,30 +114,24 @@ class HeaderUI: UIView {
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-             allButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-             tabButton3.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            // 버튼 위치 설정 (예시로 첫 번째와 마지막 버튼만 설정)
+            allButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            tabButton3.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             
             // 스택 뷰
-            stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0),
-            stackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 0),
-            stackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: 0),
-            stackView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 0),
             stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
             stackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
             
-            // 헤더 뷰 높이
+            // 헤더 뷰 높이 설정
             headerView.heightAnchor.constraint(equalToConstant: 200)
         ])
-    
-    }
-    
+    }    
     // 카테고리 버튼을 눌렀을 때 버튼 색상이 바뀌는 메서드
     func thisButtonTap(selectedButton: UIButton) {
         for button in buttons {
             button.backgroundColor = (button == selectedButton) ? .red : .white
         }
     }
-
 }
