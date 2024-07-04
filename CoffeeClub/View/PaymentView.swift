@@ -13,7 +13,6 @@ class PaymentView: UIView {
     let tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = modalColor.background
-        tv.separatorStyle = .none
         tv.register(PaymentTableViewCell.self, forCellReuseIdentifier: "PaymentTableViewCell")
         return tv
     }()
@@ -29,7 +28,7 @@ class PaymentView: UIView {
     
     lazy var totalPrice: UILabel = {
         let label = UILabel()
-        label.text = "50,000원"
+        label.text = CoffeeClubList.getTotalPrice().numberFormat()
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textColor = .red
         label.textAlignment = .right
@@ -52,7 +51,7 @@ class PaymentView: UIView {
         return btn
     }()
     
-    weak var delegate: ReceiptDelegate?
+    weak var delegate: ShoppingListDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -93,14 +92,14 @@ class PaymentView: UIView {
 
 extension PaymentView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = delegate?.receiptCount() else { return 0 }
+        guard let count = delegate?.shoppingListCount() else { return 0 }
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
         cell.selectionStyle = .none
-        cell.receipt = delegate?.addNewReceipt(index: indexPath.row)
+        cell.coffeeClubList = delegate?.addShoppingList(index: indexPath.row)
         return cell
     }
 }

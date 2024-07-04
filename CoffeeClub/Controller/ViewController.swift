@@ -122,7 +122,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 extension ViewController: CoffeeCollectionViewCellDelegate {
     func didTapCoffeeImage(at index: Int) {
         orderCount += 1
-        print(CoffeeClubList.list)
         CoffeeClubList.list[index].amount += 1
         print("order Count: \(orderCount)")
     }
