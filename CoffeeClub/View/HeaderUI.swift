@@ -27,6 +27,13 @@ class HeaderUI: UIView {
         logoLabel.backgroundColor = .black
         logoLabel.font = UIFont(name: logoFontName, size: 30)
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        // 서치바
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "검색어를 입력하세요"
+        searchBar.searchBarStyle = .minimal // 선택적으로 검색바 스타일 설정
+        searchBar.backgroundColor = .white
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
     
         // 탭 메뉴 버튼들
         let tabButton1 = UIButton(type: .system)
@@ -63,6 +70,7 @@ class HeaderUI: UIView {
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.addSubview(logoLabel)
         headerView.addSubview(stackView)
+        headerView.addSubview(searchBar)
         headerView.backgroundColor = .black
         
         // 헤더 뷰를 메인 뷰에 추가
@@ -76,19 +84,24 @@ class HeaderUI: UIView {
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             // 로고 위치
-            logoLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 50),
+            logoLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 40),
             logoLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             logoLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             logoLabel.heightAnchor.constraint(equalToConstant: 50),
             
+            // 서치바 위치
+            searchBar.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 20),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
             // 스택 뷰
-            stackView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 10),
+            stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
             stackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20),
             stackView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
             
             // 헤더 뷰 높이
-            headerView.heightAnchor.constraint(equalToConstant: 150)
+            headerView.heightAnchor.constraint(equalToConstant: 220)
         ])
     
     }
