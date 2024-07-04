@@ -8,6 +8,8 @@
 import UIKit
 
 class HeaderUI: UIView {
+    var categoriseChangeButton: CategoriseChangeButton?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupHeader()
@@ -27,20 +29,26 @@ class HeaderUI: UIView {
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
     
         // 탭 메뉴 버튼들
-        let tabButton1 = UILabel()
-        tabButton1.text = "tab1"
-        tabButton1.textColor = .white
-        tabButton1.font = UIFont(name: tabFontName, size:20)
+        let tabButton1 = UIButton(type: .system)
+        tabButton1.setTitle("커피", for: .normal)
+        tabButton1.setTitleColor(.white, for: .normal)
+        tabButton1.backgroundColor = .black
+        tabButton1.tag = 1
+        tabButton1.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
         
-        let tabButton2 = UILabel()
-        tabButton2.text = "tab2"
-        tabButton2.textColor = .white
-        tabButton2.font = UIFont(name: tabFontName, size:20)
+        let tabButton2 = UIButton(type: .system)
+        tabButton2.setTitle("디카페인", for: .normal)
+        tabButton2.setTitleColor(.white, for: .normal)
+        tabButton2.backgroundColor = .black
+        tabButton2.tag = 2
+        tabButton2.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
         
-        let tabButton3 = UILabel()
-        tabButton3.text = "tab3"
-        tabButton3.textColor = .white
-        tabButton3.font = UIFont(name: tabFontName, size:20)
+        let tabButton3 = UIButton(type: .system)
+        tabButton3.setTitle("디저트", for: .normal)
+        tabButton3.setTitleColor(.white, for: .normal)
+        tabButton3.backgroundColor = .black
+        tabButton3.tag = 3
+        tabButton3.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
         
         // 스택 뷰에 버튼 추가
         let stackView = UIStackView(arrangedSubviews: [tabButton1, tabButton2, tabButton3])
