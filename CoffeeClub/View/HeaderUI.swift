@@ -44,7 +44,7 @@ class HeaderUI: UIView {
         let allButton = UIButton(type: .system)
         allButton.setTitle("ALL", for: .normal)
         allButton.setTitleColor(.black, for: .normal)
-        allButton.backgroundColor = .red
+        allButton.backgroundColor = UIColor(hex: "#e4e4e4")
         allButton.tag = 1
         allButton.layer.cornerRadius = 5
         allButton.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
@@ -83,7 +83,7 @@ class HeaderUI: UIView {
         stackView.spacing = 10
         stackView.backgroundColor = .white
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.backgroundColor = UIColor(hex: "#cd2323")
+        stackView.backgroundColor = UIColor(hex: "#f4f0ed")
         
         // 헤더 뷰 생성
         let headerView = UIView()
@@ -104,25 +104,25 @@ class HeaderUI: UIView {
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             // 로고 위치
-            logoLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 50),
+            logoLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 60),
             logoLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             logoLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             logoLabel.heightAnchor.constraint(equalToConstant: 40),
             
             // 서치바 위치
-            searchBar.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 10),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
+            searchBar.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 5),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
             // 버튼 위치 설정 (예시로 첫 번째와 마지막 버튼만 설정)
-            allButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            tabButton3.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            allButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            tabButton3.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
             // 스택 뷰
-            stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
+            stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0),
             stackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
+            stackView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10),
             
             // 헤더 뷰 높이 설정
             headerView.heightAnchor.constraint(equalToConstant: 200)
@@ -130,8 +130,16 @@ class HeaderUI: UIView {
     }    
     // 카테고리 버튼을 눌렀을 때 버튼 색상이 바뀌는 메서드
     func thisButtonTap(selectedButton: UIButton) {
-        for button in buttons {
-            button.backgroundColor = (button == selectedButton) ? .red : .white
+        UIView.animate(withDuration: 0.3) {
+            for button in self.buttons {
+                if button == selectedButton {
+                    button.backgroundColor = UIColor(hex: "#e4e4e4")
+                    button.setTitleColor(UIColor(hex: "#222222"), for: .normal)
+                } else {
+                    button.backgroundColor = .white
+                    button.setTitleColor(UIColor(hex: "#333333"), for: .normal)
+                }
+            }
         }
     }
 }

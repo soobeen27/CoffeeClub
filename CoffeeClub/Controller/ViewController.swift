@@ -7,10 +7,10 @@
 import UIKit
 import SnapKit
 
-/* #Preview {
+#Preview {
     let name = ViewController()
     return name
-} */
+}
 
 class ViewController: UIViewController {
     var categoriseChangeButton: CategoriseChangeButton?
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         didSet {
             orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
         }
-    }
+    }// 수정하기
     
     var filteredCoffeeList: [CoffeeClubList] = [] {
         didSet {
