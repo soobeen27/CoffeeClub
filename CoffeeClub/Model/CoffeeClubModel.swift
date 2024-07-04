@@ -17,6 +17,13 @@ struct CoffeeClubList {
 
 extension CoffeeClubList {
     static var list = [
+        CoffeeClubList(imageName: "coffee1", menuName: "아메리카노", menuPrice: 5000, type: "coffee"),
+        CoffeeClubList(imageName: "coffee1", menuName: "카페라떼", menuPrice: 5000, type: "coffee"),
+        CoffeeClubList(imageName: "coffee1", menuName: "디카페인 아메리카노", menuPrice: 5000, type: "decaffeine"),
+        CoffeeClubList(imageName: "coffee1", menuName: "디카페인 카페라떼", menuPrice: 5000, type: "decaffeine"),
+        CoffeeClubList(imageName: "coffee1", menuName: "치즈케이크", menuPrice: 5000, type: "dessert"),
+        CoffeeClubList(imageName: "coffee1", menuName: "허니브레드", menuPrice: 5000, type: "dessert"),
+        CoffeeClubList(imageName: "coffee1", menuName: "초코케이크", menuPrice: 5000, type: "dessert"),
         CoffeeClubList(imageName: "mint_sparkling", menuName: "민트 스파클링 에스프레소", menuPrice: 5000, type: "coffee"),
         CoffeeClubList(imageName: "salted_caramel_espresso", menuName: "솔티드 캐러멜 에스프레소", menuPrice: 5000, type: "coffee"),
         CoffeeClubList(imageName: "iced_peppermint_mocha", menuName: "아이스 페퍼민트 모카", menuPrice: 5000, type: "decaffeine"),
