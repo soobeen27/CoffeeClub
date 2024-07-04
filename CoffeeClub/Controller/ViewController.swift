@@ -7,35 +7,34 @@
 import UIKit
 import SnapKit
 
-#Preview {
+/* #Preview {
     let name = ViewController()
     return name
-}
+} */
 
 class ViewController: UIViewController {
-    var categoriseChangeButton:CategoriseChangeButton?
+    var categoriseChangeButton: CategoriseChangeButton?
     var coffeeCollectionView: UICollectionView!
     var coffeeList: [CoffeeClubList] = CoffeeClubList.list
     let orderButton = UIButton(type: .system)
-    var headerView = HeaderUI()
+    var headerView: HeaderUI!
     var orderCount: Int = 0 {
         didSet {
             orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
         }
     }
-//    var coffeeClubList: CoffeeClubList? {
-//        didSet {
-//            guard var coffeeClubList = coffeeClubList else { return }
-////            menuNameLabel.text = coffeeClubList.menuName
-////            menuPriceLabel.text = coffeeClubList.menuPrice.numberFormat()
-////            coffeeImage.image = UIImage(named: coffeeClubList.imageName)
-//        }
-//    }
+    
+    var filteredCoffeeList: [CoffeeClubList] = [] {
+        didSet {
+            coffeeCollectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(hex: "#f4f0ed")
         setupHeader()
+        setupSearchBar()
         setupCollectionView()
         setupOrderArea()
         setLayout()
@@ -61,6 +60,10 @@ class ViewController: UIViewController {
             let nextVC = PaymentVC()
             self.present(nextVC, animated: true)
         }, for: .touchUpInside)
+    }
+    
+    func setupSearchBar() {
+        headerView.searchBar.delegate = self
     }
     
     func setupCollectionView() {
@@ -107,12 +110,12 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return coffeeList.count
+        return filteredCoffeeList.isEmpty ? coffeeList.count : filteredCoffeeList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoffeeCollectionViewCell", for: indexPath) as! CoffeeCollectionViewCell
-        let coffee = coffeeList[indexPath.row]
+        let coffee = filteredCoffeeList.isEmpty ? coffeeList[indexPath.row] : filteredCoffeeList[indexPath.row]
         cell.configure(coffee: coffee)
         cell.delegate = self
         cell.index = indexPath.row
@@ -141,4 +144,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredCoffeeList = []
+        } else {
+            filteredCoffeeList = coffeeList.filter { $0.menuName.contains(searchText) }
+        }
+    }
+}
