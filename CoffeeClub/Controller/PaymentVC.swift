@@ -37,7 +37,6 @@ extension PaymentVC: ShoppingListDelegate {
         CoffeeClubList.stepAmount(oper: oper, coffeeClubList: data)
     }
 }
-
 protocol ShoppingListDelegate: AnyObject  {
     func addShoppingList(index: Int) -> CoffeeClubList
     func shoppingListCount() -> Int

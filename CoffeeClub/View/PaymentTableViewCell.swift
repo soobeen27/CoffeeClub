@@ -15,9 +15,14 @@ class PaymentTableViewCell: UITableViewCell {
             itemName.text = "\(coffeeClubList.menuName)"
             itemPrice.text = (coffeeClubList.menuPrice * coffeeClubList.amount).numberFormat()
             amountLabel.text = String(coffeeClubList.amount)
+            productImageView.image = UIImage(named: coffeeClubList.imageName)   
         }
     }
-    weak var delegate: ShoppingListDelegate?
+    lazy var productImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        return iv
+    }()
     
     lazy var plusBtn: UIButton = {
         let btn = UIButton()
@@ -83,6 +88,14 @@ class PaymentTableViewCell: UITableViewCell {
         return label
     }()
     
+//    lazy var vStackView: UIStackView = {
+//       let st = UIStackView(arrangedSubviews: [itemName,itemPrice,stepperStv])
+//        st.axis = .vertical
+//        st.distribution = .equalSpacing
+//        st.spacing = 8
+//        return st
+//    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setLayout()
@@ -102,10 +115,16 @@ class PaymentTableViewCell: UITableViewCell {
     
     func setLayout() {
         self.backgroundColor = .clear
-        [itemName, itemPrice, stepperStv].forEach {
+        [productImageView, itemName, itemPrice, stepperStv].forEach {
             self.contentView.addSubview($0)
         }
-        itemName.snp.makeConstraints { 
+        
+        productImageView.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.size.equalTo(120)
+            $0.centerY.equalToSuperview()
+        }
+        itemName.snp.makeConstraints {
             $0.top.equalToSuperview().inset(16)
             $0.trailing.equalToSuperview().offset(-24)
         }
@@ -114,10 +133,11 @@ class PaymentTableViewCell: UITableViewCell {
             $0.trailing.equalToSuperview().offset(-24)
         }
         stepperStv.snp.makeConstraints {
-            $0.top.equalTo(itemPrice.snp.bottom).offset(24)
+            $0.top.equalTo(itemPrice.snp.bottom).offset(16)
             $0.trailing.equalToSuperview().offset(-24)
             $0.bottom.equalToSuperview().offset(-16)
         }
+        
         plusBtn.snp.makeConstraints {
             $0.size.equalTo(CGSize(width: 20, height: 20))
         }
