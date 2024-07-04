@@ -18,11 +18,11 @@ struct CoffeeClubList {
 extension CoffeeClubList {
     static var list = [
         CoffeeClubList(imageName: "coffee1", menuName: "아메리카노", menuPrice: 5000, type: "coffee"),
-        CoffeeClubList(imageName: "coffee1", menuName: "아메리카노", menuPrice: 5000, type: "coffee"),
-        CoffeeClubList(imageName: "coffee1", menuName: "아메리카노", menuPrice: 5000, type: "decaffeine"),
-        CoffeeClubList(imageName: "coffee1", menuName: "아메리카노", menuPrice: 5000, type: "decaffeine"),
-        CoffeeClubList(imageName: "coffee1", menuName: "아메리카노", menuPrice: 5000, type: "coffee"),
-        CoffeeClubList(imageName: "coffee1", menuName: "아메리카노", menuPrice: 5000, type: "coffee")
+        CoffeeClubList(imageName: "coffee1", menuName: "카페라떼", menuPrice: 5000, type: "coffee"),
+        CoffeeClubList(imageName: "coffee1", menuName: "디카페인 아메리카노", menuPrice: 5000, type: "decaffeine"),
+        CoffeeClubList(imageName: "coffee1", menuName: "디카페인 카페라떼", menuPrice: 5000, type: "decaffeine"),
+        CoffeeClubList(imageName: "coffee1", menuName: "치즈케이크", menuPrice: 5000, type: "dessert"),
+        CoffeeClubList(imageName: "coffee1", menuName: "허니브레드", menuPrice: 5000, type: "dessert")
     ]
     //상단 탭바 눌렀을 때 
     static func categories(type: String) -> [CoffeeClubList] {
