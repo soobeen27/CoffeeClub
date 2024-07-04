@@ -47,7 +47,7 @@ class HeaderUI: UIView {
         allButton.backgroundColor = UIColor(hex: "#e4e4e4")
         allButton.tag = 1
         allButton.layer.cornerRadius = 5
-        allButton.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
+        allButton.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchDown)
         
         let tabButton1 = UIButton(type: .system)
         tabButton1.setTitle("커피", for: .normal)
@@ -55,7 +55,7 @@ class HeaderUI: UIView {
         tabButton1.backgroundColor = .white
         tabButton1.tag = 2
         tabButton1.layer.cornerRadius = 5
-        tabButton1.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
+        tabButton1.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchDown)
         
         let tabButton2 = UIButton(type: .system)
         tabButton2.setTitle("디카페인", for: .normal)
@@ -63,7 +63,7 @@ class HeaderUI: UIView {
         tabButton2.backgroundColor = .white
         tabButton2.tag = 3
         tabButton2.layer.cornerRadius = 5
-        tabButton2.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
+        tabButton2.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchDown)
         
         let tabButton3 = UIButton(type: .system)
         tabButton3.setTitle("디저트", for: .normal)
@@ -71,7 +71,7 @@ class HeaderUI: UIView {
         tabButton3.backgroundColor = .white
         tabButton3.tag = 4
         tabButton3.layer.cornerRadius = 5
-        tabButton3.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
+        tabButton3.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchDown)
         
         buttons = [allButton, tabButton1, tabButton2, tabButton3]
         
