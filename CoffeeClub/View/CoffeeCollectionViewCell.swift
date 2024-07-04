@@ -35,20 +35,20 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
     func setLabels() {
         //커피 사진
         coffeeImage = UIImageView()
-        coffeeImage.image = UIImage(named: "coffee1")
         coffeeImage.contentMode = .scaleAspectFill
 
         //커피 이름
         menuNameLabel = UILabel()
-        menuNameLabel.textAlignment = .center
-        menuNameLabel.textColor = .black
-        menuNameLabel.font = UIFont(name: coffeeFontName, size: 15)
+        menuNameLabel.textAlignment = .left
+        menuNameLabel.textColor = .darkGray
+        menuNameLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        menuNameLabel.numberOfLines = 0
 
         //커피 가격
         menuPriceLabel = UILabel()
-        menuPriceLabel.textAlignment = .center
-        menuNameLabel.textColor = .black
-        menuPriceLabel.font = UIFont(name: coffeeFontName, size: 18)
+        menuPriceLabel.textAlignment = .left
+        menuPriceLabel.textColor = UIColor(hex: "#4b4b4b")
+        menuPriceLabel.font = .systemFont(ofSize: 16, weight: .bold)
     }
     
     func setLayout() {
@@ -56,20 +56,30 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
             self.contentView.addSubview($0)
         }
         coffeeImage.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(24)
-            $0.leading.trailing.equalToSuperview().inset(10)
-            $0.height.equalTo(self.frame.height * 0.6)
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.trailing.equalToSuperview().inset(0)
+            $0.height.equalTo(self.frame.width * 0.8)
         }
+        
         menuNameLabel.snp.makeConstraints {
-            $0.top.equalTo(coffeeImage.snp.bottom).offset(16)
+            $0.top.equalTo(coffeeImage.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(10)
         }
         menuPriceLabel.snp.makeConstraints {
-            $0.top.equalTo(menuNameLabel.snp.bottom).offset(3)
-            $0.leading.trailing.bottom.equalToSuperview().inset(10)
+            $0.top.equalTo(menuNameLabel.snp.bottom).offset(5)
+            $0.leading.trailing.equalToSuperview().inset(10)
         }
         
-        self.contentView.layer.borderWidth = 1
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 10
+        self.contentView.layer.masksToBounds = false
+        self.contentView.layer.cornerRadius = 10
+        
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.layer.shadowRadius = 4
+        cellShadow()
     }
     
     required init?(coder: NSCoder) {
@@ -77,9 +87,16 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(coffee: CoffeeClubList) {
+        coffeeImage.image = UIImage(named: coffee.imageName)
+        coffeeImage.layer.cornerRadius = 10
+        coffeeImage.clipsToBounds = true
         menuNameLabel.text = coffee.menuName
         menuPriceLabel.text = coffee.menuPrice.numberFormat()
-        coffeeImage.image = UIImage(named: coffee.imageName)
+    }
+    
+    private func cellShadow() {
+        let shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius)
+        self.layer.shadowPath = shadowPath.cgPath
     }
 }
 
