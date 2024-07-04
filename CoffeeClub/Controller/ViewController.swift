@@ -41,6 +41,7 @@ class ViewController: UIViewController {
         setLayout()
     }
     
+    // 카테고리 변경 탭을 헤더 뷰에 연결
     func setupHeader() {
         headerView = HeaderUI(frame: .zero)
         view.addSubview(headerView)
