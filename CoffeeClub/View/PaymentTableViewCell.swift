@@ -28,6 +28,7 @@ class PaymentTableViewCell: UITableViewCell {
         btn.addAction(UIAction { _ in
             CoffeeClubList.stepAmount(oper: .plus, coffeeClubList: self.coffeeClubList!)
             self.coffeeClubList?.amount += 1
+            self.postNotification()
         }, for: .touchDown)
         return btn
     }()
@@ -41,6 +42,7 @@ class PaymentTableViewCell: UITableViewCell {
         btn.addAction(UIAction { _ in
             CoffeeClubList.stepAmount(oper: .minus, coffeeClubList: self.coffeeClubList!)
             self.coffeeClubList?.amount -= 1
+            self.postNotification()
         }, for: .touchDown)
         return btn
     }()
@@ -49,22 +51,24 @@ class PaymentTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.backgroundColor = .clear
-        label.font = .systemFont(ofSize: 20)
+//        label.font = .systemFont(ofSize: 20)
+        label.font = .systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
     }()
-    lazy var hSV: UIStackView = {
+    lazy var stepperStv: UIStackView = {
         let st = UIStackView(arrangedSubviews: [minusBtn, amountLabel, plusBtn])
         st.axis = .horizontal
         st.distribution = .fillEqually
         st.alignment = .center
-        st.spacing = 16
+        st.spacing = 8
         return st
     }()
     
     let itemName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 25)
+//        label.font = .systemFont(ofSize: 25)
+        label.font = .systemFont(ofSize: 20)
         label.textColor = modalColor.text
         label.textAlignment = .right
         return label
@@ -72,7 +76,8 @@ class PaymentTableViewCell: UITableViewCell {
     
     let itemPrice: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+//        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = modalColor.text
         label.textAlignment = .right
         return label
@@ -91,9 +96,13 @@ class PaymentTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func postNotification() {
+        NotificationCenter.default.post(name: NSNotification.Name("amountChanged"), object: nil)
+    }
+    
     func setLayout() {
         self.backgroundColor = .clear
-        [itemName, itemPrice, hSV].forEach {
+        [itemName, itemPrice, stepperStv].forEach {
             self.contentView.addSubview($0)
         }
         itemName.snp.makeConstraints { 
@@ -104,18 +113,18 @@ class PaymentTableViewCell: UITableViewCell {
             $0.top.equalTo(itemName.snp.bottom).offset(8)
             $0.trailing.equalToSuperview().offset(-24)
         }
-        hSV.snp.makeConstraints {
+        stepperStv.snp.makeConstraints {
             $0.top.equalTo(itemPrice.snp.bottom).offset(24)
             $0.trailing.equalToSuperview().offset(-24)
             $0.bottom.equalToSuperview().offset(-16)
         }
         plusBtn.snp.makeConstraints {
-            $0.size.equalTo(CGSize(width: 30, height: 30))
+            $0.size.equalTo(CGSize(width: 20, height: 20))
         }
         minusBtn.snp.makeConstraints {
-            $0.size.equalTo(CGSize(width: 30, height: 30))
+            $0.size.equalTo(CGSize(width: 20, height: 20))
         }
-        plusBtn.layer.cornerRadius = 15
-        minusBtn.layer.cornerRadius = 15
+        plusBtn.layer.cornerRadius = 10
+        minusBtn.layer.cornerRadius = 10
     }
 }

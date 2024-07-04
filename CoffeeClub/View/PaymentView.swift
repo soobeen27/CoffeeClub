@@ -44,10 +44,14 @@ class PaymentView: UIView {
     
     let paymentBtn: UIButton = {
         let btn = UIButton()
+//        btn.setTitle("결제하기", for: .normal)
+//        btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
+//        btn.setTitleColor(.white, for: .normal)
+//        btn.backgroundColor = .black
         btn.setTitle("결제하기", for: .normal)
-        btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        btn.backgroundColor = UIColor(hex: "#cd2323")
         btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = .black
         return btn
     }()
     
@@ -58,6 +62,12 @@ class PaymentView: UIView {
         setLayout()
         tableView.dataSource = self
         tableView.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(amountChanged(notification:)), name: NSNotification.Name("amountChanged"), object: nil)
+
+    }
+    @objc func amountChanged(notification: Notification) {
+        totalPrice.text = CoffeeClubList.getTotalPrice().numberFormat()
+        tableView.reloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -68,7 +78,7 @@ class PaymentView: UIView {
         [tableView, paymentBtn, hSTV].forEach {
             self.addSubview($0)
         }
-        paymentBtn.layer.cornerRadius = 25
+        paymentBtn.layer.cornerRadius = 10
 
         self.backgroundColor = modalColor.background
         tableView.snp.makeConstraints {
@@ -83,8 +93,8 @@ class PaymentView: UIView {
         
         paymentBtn.snp.makeConstraints {
             $0.top.equalTo(hSTV.snp.bottom).offset(10)
-            $0.leading.trailing.equalToSuperview().inset(30)
-            $0.bottom.equalToSuperview().offset(-10)
+            $0.leading.trailing.equalToSuperview().inset(10)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-10)
             $0.height.equalTo(50)
         }
     }
