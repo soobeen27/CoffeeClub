@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var coffeeList: [CoffeeClubList] = CoffeeClubList.list
     let orderButton = UIButton(type: .system)
     var headerView = HeaderUI()
+    let searchBar = UISearchBar()
     var orderCount: Int = 0 {
         didSet {
             orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
@@ -39,6 +40,7 @@ class ViewController: UIViewController {
         setupCollectionView()
         setupOrderArea()
         setLayout()
+        setupSearchbar()
     }
     
     func setupHeader() {
@@ -78,15 +80,21 @@ class ViewController: UIViewController {
         view.addSubview(coffeeCollectionView)
     }
     
+    func setupSearchbar() {
+        // 서치바 설정
+        searchBar.placeholder = "검색어를 입력하세요"
+        searchBar.searchBarStyle = .minimal
+    }
+    
     // MARK: 오토레이아웃은 모아서!
     func setLayout() {
-        [headerView, orderButton, coffeeCollectionView].forEach {
+        [headerView, orderButton, coffeeCollectionView, searchBar].forEach {
             self.view.addSubview($0)
         }
         
         headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(150)
+            $0.height.equalTo(200)
         }
         
         orderButton.snp.makeConstraints {
@@ -99,6 +107,11 @@ class ViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(headerView.snp.bottom).offset(10)
             $0.bottom.equalTo(orderButton.snp.top).offset(-10)
+        }
+        
+        searchBar.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(151)
+            $0.leading.trailing.equalToSuperview().inset(10)
         }
     }
 }
