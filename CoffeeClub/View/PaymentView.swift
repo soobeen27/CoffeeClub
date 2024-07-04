@@ -17,6 +17,7 @@ class PaymentView: UIView {
         tv.register(PaymentTableViewCell.self, forCellReuseIdentifier: "PaymentTableViewCell")
         return tv
     }()
+    
     let productPrice: UILabel = {
         let label = UILabel()
         label.text = "상품금액"
@@ -42,8 +43,6 @@ class PaymentView: UIView {
         return st
     }()
     
-    
-    
     let paymentBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("결제하기", for: .normal)
@@ -53,7 +52,6 @@ class PaymentView: UIView {
         return btn
     }()
     
-
     weak var delegate: ReceiptDelegate?
     
     override init(frame: CGRect) {
