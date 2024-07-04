@@ -25,7 +25,7 @@ class HeaderUI: UIView {
         logoLabel.textAlignment = .center
         logoLabel.textColor = .white
         logoLabel.backgroundColor = UIColor(hex: "#cd2323")
-        logoLabel.font = UIFont(name: "VITRO CORE TTF", size: 30)
+        logoLabel.font = UIFont(name: logoFontName, size: 30)
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // 서치바

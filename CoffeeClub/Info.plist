@@ -5,6 +5,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>VITRO CORE TTF.ttf</string>
+		<string>VITRO INSPIRE TTF.ttf</string>
+		<string>VITRO PRIDE TTF.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
