@@ -34,8 +34,8 @@ class ViewController: UIViewController {
     
     func setupOrderArea() {
         // 아래 주문 버튼 영역
-        orderButton.setTitle("주문하기\(orderCount)", for: .normal)
-        orderButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
+        orderButton.titleLabel?.font = UIFont(name: tabFontName, size: 20)
         orderButton.backgroundColor = .black
         orderButton.setTitleColor(.white, for: .normal)
 

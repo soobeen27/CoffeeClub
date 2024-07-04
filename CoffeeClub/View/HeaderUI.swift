@@ -23,21 +23,24 @@ class HeaderUI: UIView {
         logoLabel.textAlignment = .center
         logoLabel.textColor = .white
         logoLabel.backgroundColor = .black
-        logoLabel.font = UIFont(name: "VITRO CORE TTF", size: 30)
+        logoLabel.font = UIFont(name: logoFontName, size: 30)
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
     
         // 탭 메뉴 버튼들
         let tabButton1 = UILabel()
         tabButton1.text = "tab1"
         tabButton1.textColor = .white
+        tabButton1.font = UIFont(name: tabFontName, size:20)
         
         let tabButton2 = UILabel()
         tabButton2.text = "tab2"
         tabButton2.textColor = .white
+        tabButton2.font = UIFont(name: tabFontName, size:20)
         
         let tabButton3 = UILabel()
         tabButton3.text = "tab3"
         tabButton3.textColor = .white
+        tabButton3.font = UIFont(name: tabFontName, size:20)
         
         // 스택 뷰에 버튼 추가
         let stackView = UIStackView(arrangedSubviews: [tabButton1, tabButton2, tabButton3])

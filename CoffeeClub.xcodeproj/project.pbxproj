@@ -11,6 +11,7 @@
 		C2AAD06A2C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */; };
 		C2AAD06B2C3530D70020D9D3 /* VITRO PRIDE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */; };
 		C2AAD06D2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */; };
+		C2AAD06F2C3565020020D9D3 /* FontModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAD06E2C3565020020D9D3 /* FontModel.swift */; };
 		E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */; };
 		E52540212C34423100A743B0 /* HeaderUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540202C34423100A743B0 /* HeaderUI.swift */; };
 		E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540242C34429A00A743B0 /* CoffeeClubModel.swift */; };
@@ -33,6 +34,7 @@
 		C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO INSPIRE TTF.ttf"; sourceTree = "<group>"; };
 		C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO PRIDE TTF.ttf"; sourceTree = "<group>"; };
 		C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
+		C2AAD06E2C3565020020D9D3 /* FontModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModel.swift; sourceTree = "<group>"; };
 		E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E52540202C34423100A743B0 /* HeaderUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUI.swift; sourceTree = "<group>"; };
 		E52540242C34429A00A743B0 /* CoffeeClubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeClubModel.swift; path = CoffeeClub/Model/CoffeeClubModel.swift; sourceTree = SOURCE_ROOT; };
@@ -133,6 +135,7 @@
 			children = (
 				F42A74282C33BFA800763AEA /* Menu.swift */,
 				E52540242C34429A00A743B0 /* CoffeeClubModel.swift */,
+				C2AAD06E2C3565020020D9D3 /* FontModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				E52540212C34423100A743B0 /* HeaderUI.swift in Sources */,
 				F42A74162C33BACB00763AEA /* ViewController.swift in Sources */,
 				F42A74122C33BACB00763AEA /* AppDelegate.swift in Sources */,
+				C2AAD06F2C3565020020D9D3 /* FontModel.swift in Sources */,
 				E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */,
 				E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */,
 				F42A74292C33BFA800763AEA /* Menu.swift in Sources */,

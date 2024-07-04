@@ -42,11 +42,13 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
         menuNameLabel = UILabel()
         menuNameLabel.textAlignment = .center
         menuNameLabel.textColor = .black
+        menuNameLabel.font = UIFont(name: coffeeFontName, size: 15)
 
         //커피 가격
         menuPriceLabel = UILabel()
         menuPriceLabel.textAlignment = .center
         menuNameLabel.textColor = .black
+        menuPriceLabel.font = UIFont(name: coffeeFontName, size: 18)
     }
     
     func setLayout() {
