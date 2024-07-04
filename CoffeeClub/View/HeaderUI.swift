@@ -10,6 +10,8 @@ import UIKit
 class HeaderUI: UIView {
     var categoriseChangeButton: CategoriseChangeButton?
     var searchBar: UISearchBar!
+    var buttons: [UIButton] = []
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +29,7 @@ class HeaderUI: UIView {
         logoLabel.textAlignment = .center
         logoLabel.textColor = .white
         logoLabel.backgroundColor = UIColor(hex: "#cd2323")
-        logoLabel.font = UIFont(name: "VITRO CORE TTF", size: 30)
+        logoLabel.font = UIFont(name: logoFontName, size: 30)
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // 서치바
@@ -42,7 +44,7 @@ class HeaderUI: UIView {
         let allButton = UIButton(type: .system)
         allButton.setTitle("ALL", for: .normal)
         allButton.setTitleColor(.black, for: .normal)
-        allButton.backgroundColor = .white
+        allButton.backgroundColor = .red
         allButton.tag = 1
         allButton.layer.cornerRadius = 5
         allButton.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
@@ -70,6 +72,8 @@ class HeaderUI: UIView {
         tabButton3.tag = 4
         tabButton3.layer.cornerRadius = 5
         tabButton3.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchUpInside)
+        
+        buttons = [allButton, tabButton1, tabButton2, tabButton3]
         
         // 스택 뷰에 버튼 추가
         let stackView = UIStackView(arrangedSubviews: [allButton, tabButton1, tabButton2, tabButton3])
@@ -123,5 +127,11 @@ class HeaderUI: UIView {
             // 헤더 뷰 높이 설정
             headerView.heightAnchor.constraint(equalToConstant: 200)
         ])
+    }    
+    // 카테고리 버튼을 눌렀을 때 버튼 색상이 바뀌는 메서드
+    func thisButtonTap(selectedButton: UIButton) {
+        for button in buttons {
+            button.backgroundColor = (button == selectedButton) ? .red : .white
+        }
     }
 }

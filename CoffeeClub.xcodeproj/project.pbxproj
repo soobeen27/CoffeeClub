@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		45B55C302C35C15300A711E4 /* CategoriseChangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B55C2F2C35C15300A711E4 /* CategoriseChangeButton.swift */; };
 		43805EA22C361417008379B8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 43805EA12C361417008379B8 /* SnapKit */; };
+		45B55C302C35C15300A711E4 /* CategoriseChangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B55C2F2C35C15300A711E4 /* CategoriseChangeButton.swift */; };
 		C2AAD0692C3530D70020D9D3 /* VITRO CORE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0652C3530D70020D9D3 /* VITRO CORE TTF.ttf */; };
 		C2AAD06A2C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */; };
 		C2AAD06B2C3530D70020D9D3 /* VITRO PRIDE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */; };
 		C2AAD06D2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */; };
+		C2AAD06F2C3565020020D9D3 /* FontModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAD06E2C3565020020D9D3 /* FontModel.swift */; };
+		C2E4C8332C36696000E34387 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E4C8322C36696000E34387 /* LoadingView.swift */; };
+		C2E4C8352C3669AC00E34387 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E4C8342C3669AC00E34387 /* LaunchViewController.swift */; };
+		C2E4C8372C366A4900E34387 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C2E4C8362C366A4900E34387 /* Lottie */; };
 		E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */; };
 		E52540212C34423100A743B0 /* HeaderUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540202C34423100A743B0 /* HeaderUI.swift */; };
 		E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52540242C34429A00A743B0 /* CoffeeClubModel.swift */; };
@@ -21,7 +24,6 @@
 		F42A74142C33BACB00763AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74132C33BACB00763AEA /* SceneDelegate.swift */; };
 		F42A74162C33BACB00763AEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74152C33BACB00763AEA /* ViewController.swift */; };
 		F42A741B2C33BACD00763AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42A741A2C33BACD00763AEA /* Assets.xcassets */; };
-		F42A741E2C33BACD00763AEA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F42A741D2C33BACD00763AEA /* Base */; };
 		F42A74292C33BFA800763AEA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74282C33BFA800763AEA /* Menu.swift */; };
 		F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A742A2C33BFBB00763AEA /* CustomMainView.swift */; };
 		F42A743A2C33F70E00763AEA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74392C33F70E00763AEA /* Extension.swift */; };
@@ -37,6 +39,9 @@
 		C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO INSPIRE TTF.ttf"; sourceTree = "<group>"; };
 		C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO PRIDE TTF.ttf"; sourceTree = "<group>"; };
 		C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
+		C2AAD06E2C3565020020D9D3 /* FontModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModel.swift; sourceTree = "<group>"; };
+		C2E4C8322C36696000E34387 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		C2E4C8342C3669AC00E34387 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E52540202C34423100A743B0 /* HeaderUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUI.swift; sourceTree = "<group>"; };
 		E52540242C34429A00A743B0 /* CoffeeClubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeClubModel.swift; path = CoffeeClub/Model/CoffeeClubModel.swift; sourceTree = SOURCE_ROOT; };
@@ -45,7 +50,6 @@
 		F42A74132C33BACB00763AEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F42A74152C33BACB00763AEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F42A741A2C33BACD00763AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F42A741D2C33BACD00763AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F42A741F2C33BACD00763AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F42A74282C33BFA800763AEA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		F42A742A2C33BFBB00763AEA /* CustomMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainView.swift; sourceTree = "<group>"; };
@@ -62,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43805EA22C361417008379B8 /* SnapKit in Frameworks */,
+				C2E4C8372C366A4900E34387 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +109,6 @@
 				F42A74262C33BEF400763AEA /* View */,
 				F42A74252C33BEF100763AEA /* Controller */,
 				F42A741A2C33BACD00763AEA /* Assets.xcassets */,
-				F42A741C2C33BACD00763AEA /* LaunchScreen.storyboard */,
 				F42A741F2C33BACD00763AEA /* Info.plist */,
 				C2AAD0682C3530D70020D9D3 /* VITRO_Font_TTF */,
 			);
@@ -117,6 +121,7 @@
 				F42A74152C33BACB00763AEA /* ViewController.swift */,
 				F44FEC802C3438E2006EB88F /* PaymentVC.swift */,
 				45B55C2F2C35C15300A711E4 /* CategoriseChangeButton.swift */,
+				C2E4C8342C3669AC00E34387 /* LaunchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 				F42A742A2C33BFBB00763AEA /* CustomMainView.swift */,
 				F44FEC842C345378006EB88F /* PaymentView.swift */,
 				C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */,
+				C2E4C8322C36696000E34387 /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +145,7 @@
 			children = (
 				F42A74282C33BFA800763AEA /* Menu.swift */,
 				E52540242C34429A00A743B0 /* CoffeeClubModel.swift */,
+				C2AAD06E2C3565020020D9D3 /* FontModel.swift */,
 				F44FEC882C3572FC006EB88F /* DataManager.swift */,
 			);
 			path = Model;
@@ -162,6 +169,7 @@
 			name = CoffeeClub;
 			packageProductDependencies = (
 				43805EA12C361417008379B8 /* SnapKit */,
+				C2E4C8362C366A4900E34387 /* Lottie */,
 			);
 			productName = CoffeeClub;
 			productReference = F42A740E2C33BACB00763AEA /* CoffeeClub.app */;
@@ -193,6 +201,7 @@
 			mainGroup = F42A74052C33BACB00763AEA;
 			packageReferences = (
 				F42A742C2C33C22700763AEA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C2E4C82D2C3668B000E34387 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = F42A740F2C33BACB00763AEA /* Products */;
 			projectDirPath = "";
@@ -210,7 +219,6 @@
 			files = (
 				F42A741B2C33BACD00763AEA /* Assets.xcassets in Resources */,
 				C2AAD06A2C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf in Resources */,
-				F42A741E2C33BACD00763AEA /* Base in Resources */,
 				C2AAD06B2C3530D70020D9D3 /* VITRO PRIDE TTF.ttf in Resources */,
 				C2AAD0692C3530D70020D9D3 /* VITRO CORE TTF.ttf in Resources */,
 			);
@@ -227,9 +235,12 @@
 				F44FEC852C345378006EB88F /* PaymentView.swift in Sources */,
 				F42A743A2C33F70E00763AEA /* Extension.swift in Sources */,
 				E52540212C34423100A743B0 /* HeaderUI.swift in Sources */,
+				C2E4C8332C36696000E34387 /* LoadingView.swift in Sources */,
 				F42A74162C33BACB00763AEA /* ViewController.swift in Sources */,
 				45B55C302C35C15300A711E4 /* CategoriseChangeButton.swift in Sources */,
+				C2E4C8352C3669AC00E34387 /* LaunchViewController.swift in Sources */,
 				F42A74122C33BACB00763AEA /* AppDelegate.swift in Sources */,
+				C2AAD06F2C3565020020D9D3 /* FontModel.swift in Sources */,
 				E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */,
 				E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */,
 				F42A74292C33BFA800763AEA /* Menu.swift in Sources */,
@@ -242,17 +253,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F42A741C2C33BACD00763AEA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F42A741D2C33BACD00763AEA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F42A74202C33BACD00763AEA /* Debug */ = {
@@ -454,6 +454,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C2E4C82D2C3668B000E34387 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
 		F42A742C2C33C22700763AEA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -469,6 +477,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F42A742C2C33C22700763AEA /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		C2E4C8362C366A4900E34387 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2E4C82D2C3668B000E34387 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
