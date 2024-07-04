@@ -24,6 +24,12 @@ extension CoffeeClubList {
         CoffeeClubList(imageName: "coffee1", menuName: "치즈케이크", menuPrice: 5000, type: "dessert"),
         CoffeeClubList(imageName: "coffee1", menuName: "허니브레드", menuPrice: 5000, type: "dessert"),
         CoffeeClubList(imageName: "coffee1", menuName: "초코케이크", menuPrice: 5000, type: "dessert")
+        CoffeeClubList(imageName: "mint_sparkling", menuName: "민트 스파클링 에스프레소", menuPrice: 5000, type: "coffee"),
+        CoffeeClubList(imageName: "salted_caramel_espresso", menuName: "솔티드 캐러멜 에스프레소", menuPrice: 5000, type: "coffee"),
+        CoffeeClubList(imageName: "iced_peppermint_mocha", menuName: "아이스 페퍼민트 모카", menuPrice: 5000, type: "decaffeine"),
+        CoffeeClubList(imageName: "viet_iced", menuName: "베트남 아이스 커피", menuPrice: 5000, type: "decaffeine"),
+        CoffeeClubList(imageName: "nutmeg_latte", menuName: "너트멕 라테", menuPrice: 5000, type: "coffee"),
+        CoffeeClubList(imageName: "iced_caramel_vanila", menuName: "아이스 캬라멜 라테", menuPrice: 5000, type: "coffee")
     ]
     //상단 탭바 눌렀을 때 
     static func categories(type: String) -> [CoffeeClubList] {

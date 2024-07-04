@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hex: "#f4f0ed")
         setupHeader()
         setupCollectionView()
         setupOrderArea()
@@ -54,9 +54,9 @@ class ViewController: UIViewController {
         // 아래 주문 버튼 영역
         orderButton.setTitle("주문하기\(orderCount)", for: .normal)
         orderButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        orderButton.backgroundColor = .black
+        orderButton.backgroundColor = UIColor(hex: "#cd2323")
         orderButton.setTitleColor(.white, for: .normal)
-        
+        orderButton.layer.cornerRadius = 10
         orderButton.addAction(UIAction {_ in
             let nextVC = PaymentVC()
             self.present(nextVC, animated: true)
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         
         // 컬렉션뷰 생성 및 설정
         coffeeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        coffeeCollectionView.backgroundColor = .white
+        coffeeCollectionView.backgroundColor = UIColor(hex: "#f4f0ed")
         coffeeCollectionView.dataSource = self
         coffeeCollectionView.delegate = self
         
@@ -86,8 +86,9 @@ class ViewController: UIViewController {
         }
         
         headerView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(210)
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(190)
         }
         
         orderButton.snp.makeConstraints {
@@ -133,7 +134,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         let padding: CGFloat = 10
         let availableWidth = view.frame.size.width - padding
         let width = availableWidth / 2.24
-        return CGSize(width: width, height: width * 1.3)
+        return CGSize(width: width, height: width * 1.38)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
