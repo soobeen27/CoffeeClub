@@ -30,7 +30,7 @@ class PaymentView: UIView {
         let label = UILabel()
         label.text = CoffeeClubList.getTotalPrice().numberFormat()
         label.font = .systemFont(ofSize: 20, weight: .bold)
-        label.textColor = .red
+        label.textColor = UIColor(hex: "#cd2323")
         label.textAlignment = .right
         return label
     }()
