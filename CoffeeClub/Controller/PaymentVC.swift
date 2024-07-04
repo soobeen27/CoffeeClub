@@ -8,7 +8,6 @@ import UIKit
 import SnapKit
 
 class PaymentVC: UIViewController {
-    
     var paymentView: PaymentView!
     
     override func viewDidLoad() {
@@ -17,6 +16,7 @@ class PaymentVC: UIViewController {
             sheetPresentationController.detents = [.medium()]
         }
         paymentView.delegate = self
+        
     }
     override func loadView() {
         super.loadView()

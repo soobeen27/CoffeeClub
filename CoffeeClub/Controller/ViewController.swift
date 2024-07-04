@@ -13,16 +13,24 @@ import SnapKit
 }
 
 class ViewController: UIViewController {
-    
     var coffeeCollectionView: UICollectionView!
     let coffeeList: [CoffeeClubList] = CoffeeClubList.list
     let orderButton = UIButton(type: .system)
     var headerView = HeaderUI()
+    let searchBar = UISearchBar()
     var orderCount: Int = 0 {
         didSet {
             orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
         }
     }
+//    var coffeeClubList: CoffeeClubList? {
+//        didSet {
+//            guard var coffeeClubList = coffeeClubList else { return }
+////            menuNameLabel.text = coffeeClubList.menuName
+////            menuPriceLabel.text = coffeeClubList.menuPrice.numberFormat()
+////            coffeeImage.image = UIImage(named: coffeeClubList.imageName)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +38,7 @@ class ViewController: UIViewController {
         setupCollectionView()
         setupOrderArea()
         setLayout()
+        setupSearchbar()
     }
     
     func setupOrderArea() {
@@ -38,11 +47,11 @@ class ViewController: UIViewController {
         orderButton.titleLabel?.font = UIFont(name: tabFontName, size: 20)
         orderButton.backgroundColor = .black
         orderButton.setTitleColor(.white, for: .normal)
-
+        
         orderButton.addAction(UIAction {_ in
-                    let nextVC = PaymentVC()
-                    self.present(nextVC, animated: true)
-                }, for: .touchUpInside)
+            let nextVC = PaymentVC()
+            self.present(nextVC, animated: true)
+        }, for: .touchUpInside)
     }
     
     func setupCollectionView() {
@@ -55,20 +64,26 @@ class ViewController: UIViewController {
         coffeeCollectionView.backgroundColor = .white
         coffeeCollectionView.dataSource = self
         coffeeCollectionView.delegate = self
-
+        
         // 컬렉션뷰 셀 등록
         coffeeCollectionView.register(CoffeeCollectionViewCell.self, forCellWithReuseIdentifier: "CoffeeCollectionViewCell")
     }
     
+    func setupSearchbar() {
+        // 서치바 설정
+        searchBar.placeholder = "검색어를 입력하세요"
+        searchBar.searchBarStyle = .minimal
+    }
+    
     // MARK: 오토레이아웃은 모아서!
     func setLayout() {
-        [headerView, orderButton, coffeeCollectionView].forEach {
+        [headerView, orderButton, coffeeCollectionView, searchBar].forEach {
             self.view.addSubview($0)
         }
-
+        
         headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(150)
+            $0.height.equalTo(200)
         }
         
         orderButton.snp.makeConstraints {
@@ -76,11 +91,16 @@ class ViewController: UIViewController {
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
             $0.height.equalTo(50)
         }
-
+        
         coffeeCollectionView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(headerView.snp.bottom).offset(10)
             $0.bottom.equalTo(orderButton.snp.top).offset(-10)
+        }
+        
+        searchBar.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(151)
+            $0.leading.trailing.equalToSuperview().inset(10)
         }
     }
 }
@@ -103,6 +123,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 extension ViewController: CoffeeCollectionViewCellDelegate {
     func didTapCoffeeImage(at index: Int) {
         orderCount += 1
+        print(CoffeeClubList.list)
+        CoffeeClubList.list[index].amount += 1
         print("order Count: \(orderCount)")
     }
 }
