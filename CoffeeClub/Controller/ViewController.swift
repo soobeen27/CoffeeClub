@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         setupCollectionView()
         setupOrderArea()
         setLayout()
+        hideKeyboard()
     }
     
     // 카테고리 변경 탭을 헤더 뷰에 연결
@@ -128,6 +129,9 @@ extension ViewController: CoffeeCollectionViewCellDelegate {
         orderCount += 1
         CoffeeClubList.list[index].amount += 1
         print("order Count: \(orderCount)")
+        
+        // 키보드 내리는 함수
+        view.endEditing(true)
     }
 }
 
@@ -151,5 +155,18 @@ extension ViewController: UISearchBarDelegate {
         } else {
             filteredCoffeeList = coffeeList.filter { $0.menuName.contains(searchText) }
         }
+    }
+}
+
+extension UIViewController {
+    func hideKeyboard() {
+        // 제스처 감지
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    // 키보드 내리는 함수
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
