@@ -9,8 +9,17 @@ import UIKit
 import SnapKit
 
 class CoffeeCollectionViewCell: UICollectionViewCell {
+    var coffeeClubList: CoffeeClubList? {
+        didSet {
+            guard let coffee = coffeeClubList else { return }
+            coffeeImage.image = UIImage(named: coffee.imageName)
+            menuNameLabel.text = coffee.menuName
+            menuPriceLabel.text = coffee.menuPrice.numberFormat()
+        }
+    }
     
     weak var delegate: CoffeeCollectionViewCellDelegate?
+    
     var coffeeImage: UIImageView!
     var menuNameLabel: UILabel!
     var menuPriceLabel: UILabel!
@@ -28,7 +37,7 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func handleCoffeeTap() {
-        delegate?.didTapCoffeeImage(at: index)
+        delegate?.didTapCoffeeImage(coffeeClubList: coffeeClubList!)
     }
     
     func setLabels() {
@@ -68,6 +77,8 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
             $0.top.equalTo(menuNameLabel.snp.bottom).offset(5)
             $0.leading.trailing.equalToSuperview().inset(10)
         }
+        coffeeImage.layer.cornerRadius = 10
+        coffeeImage.clipsToBounds = true
         
         self.backgroundColor = .white
         self.layer.cornerRadius = 10
@@ -84,15 +95,6 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func configure(coffee: CoffeeClubList) {
-        coffeeImage.image = UIImage(named: coffee.imageName)
-        coffeeImage.layer.cornerRadius = 10
-        coffeeImage.clipsToBounds = true
-        menuNameLabel.text = coffee.menuName
-        menuPriceLabel.text = coffee.menuPrice.numberFormat()
-    }
-    
     private func cellShadow() {
         let shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius)
         self.layer.shadowPath = shadowPath.cgPath

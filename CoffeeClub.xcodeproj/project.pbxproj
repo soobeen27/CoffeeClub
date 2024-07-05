@@ -12,7 +12,6 @@
 		C2AAD0692C3530D70020D9D3 /* VITRO CORE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0652C3530D70020D9D3 /* VITRO CORE TTF.ttf */; };
 		C2AAD06A2C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */; };
 		C2AAD06B2C3530D70020D9D3 /* VITRO PRIDE TTF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */; };
-		C2AAD06D2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */; };
 		C2AAD06F2C3565020020D9D3 /* FontModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAD06E2C3565020020D9D3 /* FontModel.swift */; };
 		C2E4C8332C36696000E34387 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E4C8322C36696000E34387 /* LoadingView.swift */; };
 		C2E4C8352C3669AC00E34387 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E4C8342C3669AC00E34387 /* LaunchViewController.swift */; };
@@ -24,13 +23,10 @@
 		F42A74142C33BACB00763AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74132C33BACB00763AEA /* SceneDelegate.swift */; };
 		F42A74162C33BACB00763AEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74152C33BACB00763AEA /* ViewController.swift */; };
 		F42A741B2C33BACD00763AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42A741A2C33BACD00763AEA /* Assets.xcassets */; };
-		F42A74292C33BFA800763AEA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74282C33BFA800763AEA /* Menu.swift */; };
-		F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A742A2C33BFBB00763AEA /* CustomMainView.swift */; };
 		F42A743A2C33F70E00763AEA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A74392C33F70E00763AEA /* Extension.swift */; };
 		F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC802C3438E2006EB88F /* PaymentVC.swift */; };
 		F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */; };
 		F44FEC852C345378006EB88F /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC842C345378006EB88F /* PaymentView.swift */; };
-		F44FEC892C3572FC006EB88F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC882C3572FC006EB88F /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +34,6 @@
 		C2AAD0652C3530D70020D9D3 /* VITRO CORE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO CORE TTF.ttf"; sourceTree = "<group>"; };
 		C2AAD0662C3530D70020D9D3 /* VITRO INSPIRE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO INSPIRE TTF.ttf"; sourceTree = "<group>"; };
 		C2AAD0672C3530D70020D9D3 /* VITRO PRIDE TTF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VITRO PRIDE TTF.ttf"; sourceTree = "<group>"; };
-		C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		C2AAD06E2C3565020020D9D3 /* FontModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModel.swift; sourceTree = "<group>"; };
 		C2E4C8322C36696000E34387 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C2E4C8342C3669AC00E34387 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -51,13 +46,10 @@
 		F42A74152C33BACB00763AEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F42A741A2C33BACD00763AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F42A741F2C33BACD00763AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F42A74282C33BFA800763AEA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		F42A742A2C33BFBB00763AEA /* CustomMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainView.swift; sourceTree = "<group>"; };
 		F42A74392C33F70E00763AEA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F44FEC802C3438E2006EB88F /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 		F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		F44FEC842C345378006EB88F /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
-		F44FEC882C3572FC006EB88F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,9 +124,7 @@
 				E52540202C34423100A743B0 /* HeaderUI.swift */,
 				E525401E2C3441F500A743B0 /* CoffeeCollectionViewCell.swift */,
 				F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */,
-				F42A742A2C33BFBB00763AEA /* CustomMainView.swift */,
 				F44FEC842C345378006EB88F /* PaymentView.swift */,
-				C2AAD06C2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift */,
 				C2E4C8322C36696000E34387 /* LoadingView.swift */,
 			);
 			path = View;
@@ -143,10 +133,8 @@
 		F42A74272C33BEF600763AEA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F42A74282C33BFA800763AEA /* Menu.swift */,
 				E52540242C34429A00A743B0 /* CoffeeClubModel.swift */,
 				C2AAD06E2C3565020020D9D3 /* FontModel.swift */,
-				F44FEC882C3572FC006EB88F /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,7 +219,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F42A742B2C33BFBB00763AEA /* CustomMainView.swift in Sources */,
 				F44FEC852C345378006EB88F /* PaymentView.swift in Sources */,
 				F42A743A2C33F70E00763AEA /* Extension.swift in Sources */,
 				E52540212C34423100A743B0 /* HeaderUI.swift in Sources */,
@@ -243,12 +230,9 @@
 				C2AAD06F2C3565020020D9D3 /* FontModel.swift in Sources */,
 				E525401F2C3441F500A743B0 /* CoffeeCollectionViewCell.swift in Sources */,
 				E52540252C34429A00A743B0 /* CoffeeClubModel.swift in Sources */,
-				F42A74292C33BFA800763AEA /* Menu.swift in Sources */,
-				F44FEC892C3572FC006EB88F /* DataManager.swift in Sources */,
 				F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */,
 				F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */,
 				F42A74142C33BACB00763AEA /* SceneDelegate.swift in Sources */,
-				C2AAD06D2C3532DB0020D9D3 /* CoffeeCollectionViewCellDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +372,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,7 +400,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -45,6 +45,22 @@ extension CoffeeClubList {
         }
     }
     
+    static func addShopingList(coffeeClubList: CoffeeClubList) {
+        for i in 0..<list.count {
+            if list[i].imageName == coffeeClubList.imageName {
+                list[i].amount += 1
+            }
+        }
+    }
+    
+    static func getAmount() -> Int {
+        var total = 0
+        getShoppingList().forEach {
+            total += $0.amount
+        }
+        return total
+    }
+    
     static func getTotalPrice() -> Int {
         var totalPrice: Int = 0
         getShoppingList().forEach {
@@ -55,7 +71,7 @@ extension CoffeeClubList {
     
     static func stepAmount(oper: Oper, coffeeClubList: CoffeeClubList) {
         for i in 0..<list.count {
-            if list[i].menuName == coffeeClubList.menuName {
+            if list[i].imageName == coffeeClubList.imageName {
                 oper == .plus ? (list[i].amount += 1) : (list[i].amount -= 1)
             }
         }
