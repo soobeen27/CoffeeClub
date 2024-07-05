@@ -11,7 +11,6 @@ class HeaderUI: UIView {
     var categoriseChangeButton: CategoriseChangeButton?
     var searchBar: UISearchBar!
     var buttons: [UIButton] = []
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)

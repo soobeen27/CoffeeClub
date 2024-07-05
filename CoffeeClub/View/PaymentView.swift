@@ -28,7 +28,7 @@ class PaymentView: UIView {
     
     lazy var totalPrice: UILabel = {
         let label = UILabel()
-        label.text = CoffeeClubList.getTotalPrice().numberFormat()
+        label.text = CoffeeClubModel.getTotalPrice().numberFormat()
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textColor = UIColor(hex: "#cd2323")
         label.textAlignment = .right
@@ -67,7 +67,7 @@ class PaymentView: UIView {
 
     }
     @objc func amountChanged(notification: Notification) {
-        totalPrice.text = CoffeeClubList.getTotalPrice().numberFormat()
+        totalPrice.text = CoffeeClubModel.getTotalPrice().numberFormat()
         tableView.reloadData()
     }
     

@@ -22,13 +22,13 @@ class CategoriseChangeButton: NSObject {
         
         switch sender.tag {
         case 2:
-            vc.coffeeList = CoffeeClubList.categories(type: "coffee")
+            vc.coffeeList = CoffeeClubModel.categories(type: "coffee")
         case 3:
-            vc.coffeeList = CoffeeClubList.categories(type: "decaffeine")
+            vc.coffeeList = CoffeeClubModel.categories(type: "decaffeine")
         case 4:
-            vc.coffeeList = CoffeeClubList.categories(type: "dessert")
+            vc.coffeeList = CoffeeClubModel.categories(type: "dessert")
         default:
-            vc.coffeeList = CoffeeClubList.list
+            vc.coffeeList = CoffeeClubModel.list
         }
         vc.coffeeCollectionView.reloadData()
         
