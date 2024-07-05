@@ -1,4 +1,3 @@
-//
 //  CoffeeClubModel.swift
 //  CoffeeClub
 //
@@ -32,14 +31,14 @@ extension CoffeeClubList {
         CoffeeClubList(imageName: "flapjacks", menuName: "플랩잭", menuPrice: 5000, type: "dessert"),
         CoffeeClubList(imageName: "blueberry_muffin", menuName: "블루베리 머핀", menuPrice: 5000, type: "dessert"),
     ]
-    //상단 탭바 눌렀을 때
+    
     static func categories(type: String) -> [CoffeeClubList] {
         var tap = list
         tap.removeAll { $0.type != type }
         return tap
     }
     
-    static func getShoppingList() -> [CoffeeClubList]{
+    static func getShoppingList() -> [CoffeeClubList] {
         return list.filter {
             $0.amount > 0
         }
@@ -59,6 +58,10 @@ extension CoffeeClubList {
                 oper == .plus ? (list[i].amount += 1) : (list[i].amount -= 1)
             }
         }
+    }
+
+    static var orderCount: Int {
+        return list.reduce(0) { $0 + $1.amount }
     }
 }
 

@@ -3,13 +3,9 @@
 //
 //  Created by Soo Jang on 7/2/24.
 //
+
 import UIKit
 import SnapKit
-
-#Preview {
-    let name = ViewController()
-    return name
-}
 
 class ViewController: UIViewController {
     var categoriseChangeButton: CategoriseChangeButton?
@@ -17,15 +13,6 @@ class ViewController: UIViewController {
     var coffeeList: [CoffeeClubList] = CoffeeClubList.list
     let orderButton = UIButton(type: .system)
     var headerView: HeaderUI!
-    var orderCount: Int = 0 {
-        didSet {
-            if orderCount == 0 {
-                           orderButton.setTitle("주문하기", for: .normal)
-                       } else {
-                           orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
-                       }
-        }
-    }// 수정하기
     
     var filteredCoffeeList: [CoffeeClubList] = [] {
         didSet {
@@ -41,7 +28,7 @@ class ViewController: UIViewController {
         setupCollectionView()
         setupOrderArea()
         setLayout()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateOrderCount), name: NSNotification.Name("amountChanged"), object: nil)
+        setupNotificationObservers()
         updateOrderCount()
     }
     
@@ -50,8 +37,21 @@ class ViewController: UIViewController {
     }
     
     @objc func updateOrderCount() {
-        orderCount = CoffeeClubList.list.reduce(0) { $0 + $1.amount }
+        updateOrderButtonTitle()
         hideKeyboard()
+    }
+    
+    func setupNotificationObservers() {
+            NotificationCenter.default.addObserver(self, selector: #selector(updateOrderCount), name: NSNotification.Name("amountChanged"), object: nil)
+        }
+    
+    func updateOrderButtonTitle() {
+        let orderCount = CoffeeClubList.orderCount
+        if orderCount == 0 {
+            orderButton.setTitle("주문하기", for: .normal)
+        } else {
+            orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
+        }
     }
     
     // 카테고리 변경 탭을 헤더 뷰에 연결
@@ -139,12 +139,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension ViewController: CoffeeCollectionViewCellDelegate {
     func didTapCoffeeImage(at index: Int) {
-        orderCount += 1
         CoffeeClubList.list[index].amount += 1
-        print("order Count: \(orderCount)")
-        
-        // 키보드 내리는 함수
-        view.endEditing(true)
+        NotificationCenter.default.post(name: NSNotification.Name("amountChanged"), object: nil)
     }
 }
 
