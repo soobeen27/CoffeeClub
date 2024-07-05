@@ -8,6 +8,7 @@ import UIKit
 import SnapKit
 
 class PaymentTableViewCell: UITableViewCell {
+    let coffeeList = CoffeeClubModel.shared
     var coffeeClubList: CoffeeClubList? {
         didSet {
             guard let coffeeClubList = coffeeClubList else { return }
@@ -31,7 +32,7 @@ class PaymentTableViewCell: UITableViewCell {
         btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         btn.backgroundColor = .black
         btn.addAction(UIAction { _ in
-            CoffeeClubModel.stepAmount(oper: .plus, coffeeClubList: self.coffeeClubList!)
+            self.coffeeList.stepAmount(oper: .plus, coffeeClubList: self.coffeeClubList!)
             self.postNotification()
         }, for: .touchDown)
         return btn
@@ -44,7 +45,7 @@ class PaymentTableViewCell: UITableViewCell {
         btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = .black
         btn.addAction(UIAction { _ in
-            CoffeeClubModel.stepAmount(oper: .minus, coffeeClubList: self.coffeeClubList!)
+            self.coffeeList.stepAmount(oper: .minus, coffeeClubList: self.coffeeClubList!)
             self.postNotification()
         }, for: .touchDown)
         return btn
