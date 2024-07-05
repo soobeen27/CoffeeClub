@@ -127,7 +127,8 @@ class HeaderUI: UIView {
             // 헤더 뷰 높이 설정
             headerView.heightAnchor.constraint(equalToConstant: 200)
         ])
-    }    
+    }
+    
     // 카테고리 버튼을 눌렀을 때 버튼 색상이 바뀌는 메서드
     func thisButtonTap(selectedButton: UIButton) {
         for button in buttons {

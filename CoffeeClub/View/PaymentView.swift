@@ -63,11 +63,26 @@ class PaymentView: UIView {
         tableView.dataSource = self
         tableView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(amountChanged(notification:)), name: NSNotification.Name("amountChanged"), object: nil)
+        paymentBtn.addTarget(self, action: #selector(paymentButtonTapped), for: .touchUpInside)
 
     }
     @objc func amountChanged(notification: Notification) {
         totalPrice.text = CoffeeClubList.getTotalPrice().numberFormat()
         tableView.reloadData()
+    }
+    
+    @objc func paymentButtonTapped() {
+        showPaymentAlert()
+    }
+    
+    func showPaymentAlert() {
+        let alertController = UIAlertController(title: "결제 완료", message: "결제가 성공적으로 완료되었습니다.", preferredStyle: .alert)
+        let okAlert = UIAlertAction(title: "확인", style: .default)
+        alertController.addAction(okAlert)
+        
+        if let viewController = self.delegate as? UIViewController {
+            viewController.present(alertController, animated: true, completion: nil)
+        }
     }
     
     required init?(coder: NSCoder) {
