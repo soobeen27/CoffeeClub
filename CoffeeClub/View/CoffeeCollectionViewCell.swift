@@ -25,7 +25,6 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleCoffeeTap))
         coffeeImage.isUserInteractionEnabled = true
         coffeeImage.addGestureRecognizer(tapGestureRecognizer)
-        
     }
     
     @objc func handleCoffeeTap() {
