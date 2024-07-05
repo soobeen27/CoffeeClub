@@ -32,17 +32,14 @@ extension CoffeeClubList {
         CoffeeClubList(imageName: "flapjacks", menuName: "플랩잭", menuPrice: 18000, type: "dessert"),
         CoffeeClubList(imageName: "blueberry_muffin", menuName: "블루베리 머핀", menuPrice: 6000, type: "dessert"),
     ]
-    //상단 탭바 눌렀을 때
+    // 상단 탭바 눌렀을 때 리스트 변경
     static func categories(type: String) -> [CoffeeClubList] {
-        var tap = list
-        tap.removeAll { $0.type != type }
-        return tap
+        return list.filter { $0.type == type }
     }
     
+    // 수량 0일 때 주문 리스트에서 제거
     static func getShoppingList() -> [CoffeeClubList]{
-        return list.filter {
-            $0.amount > 0
-        }
+        return list.filter { $0.amount > 0 }
     }
     
     static func addShopingList(coffeeClubList: CoffeeClubList) {

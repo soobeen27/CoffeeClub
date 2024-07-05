@@ -6,143 +6,132 @@
 //
 
 import UIKit
+import SnapKit
 
 class HeaderUI: UIView {
     var categoriseChangeButton: CategoriseChangeButton?
-    var searchBar: UISearchBar!
     var buttons: [UIButton] = []
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupButtons()
         setupHeader()
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        if superview != nil {
+            setupConstraints()
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func setupHeader() {
-        // 상단 로고 이미지 뷰
-        let logoLabel = UILabel()
-        logoLabel.text = "CoffeeClub"
-        logoLabel.textAlignment = .center
-        logoLabel.textColor = .white
-        logoLabel.backgroundColor = UIColor(hex: "#cd2323")
-        logoLabel.font = UIFont(name: logoFontName, size: 30)
-        logoLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        // 서치바
-        searchBar = UISearchBar()
-        searchBar.searchTextField.backgroundColor = .white
-        searchBar.searchTextField.textColor = .black
-        searchBar.searchBarStyle = .minimal
-        if let textField = searchBar.value(forKey: "searchField") as? UITextField {
-            textField.attributedPlaceholder = NSAttributedString(string: "검색어를 입력하세요.", attributes: [.foregroundColor: UIColor.lightGray])
+        backgroundColor = UIColor(hex: "#cd2323")
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(logoLabel)
+        addSubview(stackView)
+        addSubview(searchBar)
+    }
+    
+    lazy var searchBar: UISearchBar = {
+        let bar = UISearchBar()
+        bar.searchTextField.backgroundColor = .white
+        bar.searchTextField.textColor = .black
+        bar.searchBarStyle = .minimal
+        bar.searchTextField.layer.cornerRadius = 10
+        bar.searchTextField.layer.masksToBounds = true
+        bar.layer.backgroundColor = UIColor(hex: "#cd2323").cgColor
+        if let textField = bar.value(forKey: "searchField") as? UITextField {
+            textField.attributedPlaceholder = NSAttributedString(string: "메뉴를 검색해보세요", attributes: [.foregroundColor: UIColor.lightGray])
         }
-        searchBar.layer.backgroundColor = UIColor(hex: "#cd2323").cgColor
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        return bar
+    }()
+    
+    private lazy var logoLabel: UILabel = {
+        let label = UILabel()
+        label.text = "CoffeeClub"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = UIColor(hex: "#cd2323")
+        label.font = UIFont(name: logoFontName, size: 30)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: buttons)
+        stack.axis = .horizontal
+        stack.distribution = .fillProportionally
+        stack.alignment = .center
+        stack.spacing = 10
+        stack.backgroundColor = .white
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.backgroundColor = UIColor(hex: "#f4f0ed")
+        return stack
+    }()
+    
+    private func setupButtons() {
+        let titles = ["모두", "커피", "디카페인", "디저트"]
+        for (index, title) in titles.enumerated() {
+            let button = createButton(title: title, tag: index + 1)
+            buttons.append(button)
+        }
+    }
+    
+    private func createButton(title: String, tag: Int) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.tag = tag
+        button.layer.cornerRadius = 5
+        button.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchDown)
+        return button
+    }
+    
+    // ------------------- MARK: AutoLayout 설정 -------------------
+    private func setupConstraints() {
+        guard let superview = superview else { return }
         
-        // 탭 메뉴 버튼들
-        let allButton = UIButton(type: .system)
-        allButton.setTitle("ALL", for: .normal)
-        allButton.setTitleColor(.black, for: .normal)
-        allButton.backgroundColor = UIColor(hex: "#e4e4e4")
-        allButton.tag = 1
-        allButton.layer.cornerRadius = 5
-        allButton.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchDown)
+        logoLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(60)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(40)
+        }
         
-        let tabButton1 = UIButton(type: .system)
-        tabButton1.setTitle("커피", for: .normal)
-        tabButton1.setTitleColor(.black, for: .normal)
-        tabButton1.backgroundColor = .white
-        tabButton1.tag = 2
-        tabButton1.layer.cornerRadius = 5
-        tabButton1.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchDown)
+        searchBar.snp.makeConstraints {
+            $0.top.equalTo(logoLabel.snp.bottom).offset(5)
+            $0.leading.trailing.equalToSuperview().inset(10)
+        }
         
-        let tabButton2 = UIButton(type: .system)
-        tabButton2.setTitle("디카페인", for: .normal)
-        tabButton2.setTitleColor(.black, for: .normal)
-        tabButton2.backgroundColor = .white
-        tabButton2.tag = 3
-        tabButton2.layer.cornerRadius = 5
-        tabButton2.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchDown)
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(searchBar.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
         
-        let tabButton3 = UIButton(type: .system)
-        tabButton3.setTitle("디저트", for: .normal)
-        tabButton3.setTitleColor(.black, for: .normal)
-        tabButton3.backgroundColor = .white
-        tabButton3.tag = 4
-        tabButton3.layer.cornerRadius = 5
-        tabButton3.addTarget(categoriseChangeButton, action: #selector(CategoriseChangeButton.buttonTapped(_:)), for: .touchDown)
+
         
-        buttons = [allButton, tabButton1, tabButton2, tabButton3]
+        buttons.first?.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(20)
+        }
         
-        // 스택 뷰에 버튼 추가
-        let stackView = UIStackView(arrangedSubviews: [allButton, tabButton1, tabButton2, tabButton3])
-        stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .center
-        stackView.spacing = 10
-        stackView.backgroundColor = .white
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.backgroundColor = UIColor(hex: "#f4f0ed")
-        
-        // 헤더 뷰 생성
-        let headerView = UIView()
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.addSubview(logoLabel)
-        headerView.addSubview(stackView)
-        headerView.addSubview(searchBar)
-        headerView.backgroundColor = UIColor(hex: "#cd2323")
-        
-        // 헤더 뷰를 메인 뷰에 추가
-        self.addSubview(headerView)
-        
-        // 오토레이아웃 제약 조건 설정
-        NSLayoutConstraint.activate([
-            // 헤더 뷰
-            headerView.topAnchor.constraint(equalTo: topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            // 로고 위치
-            logoLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 60),
-            logoLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            logoLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            logoLabel.heightAnchor.constraint(equalToConstant: 40),
-            
-            // 서치바 위치
-            searchBar.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 5),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            
-            // 버튼 위치 설정 (예시로 첫 번째와 마지막 버튼만 설정)
-            allButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            tabButton3.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
-            // 스택 뷰
-            stackView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0),
-            stackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10),
-            
-            // 헤더 뷰 높이 설정
-            headerView.heightAnchor.constraint(equalToConstant: 200)
-        ])
+        buttons.last?.snp.makeConstraints {
+            $0.trailing.equalToSuperview().offset(-20)
+        }
     }
     
     // 카테고리 버튼을 눌렀을 때 버튼 색상이 바뀌는 메서드
     func thisButtonTap(selectedButton: UIButton) {
         UIView.animate(withDuration: 0.3) {
-            for button in self.buttons {
-                if button == selectedButton {
-                    button.backgroundColor = UIColor(hex: "#e4e4e4")
-                    button.setTitleColor(UIColor(hex: "#222222"), for: .normal)
-                } else {
-                    button.backgroundColor = .white
-                    button.setTitleColor(UIColor(hex: "#333333"), for: .normal)
-                }
+            self.buttons.forEach {
+                let isSeleted = $0 == selectedButton
+                $0.backgroundColor = isSeleted ? UIColor(hex: "#e4e4e4") : .white
+                $0.setTitleColor(UIColor(hex: isSeleted ? "#222222" : "#333333"), for: .normal)
             }
         }
     }

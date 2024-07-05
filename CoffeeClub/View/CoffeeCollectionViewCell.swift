@@ -77,6 +77,7 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
             $0.top.equalTo(menuNameLabel.snp.bottom).offset(5)
             $0.leading.trailing.equalToSuperview().inset(10)
         }
+        
         coffeeImage.layer.cornerRadius = 10
         coffeeImage.clipsToBounds = true
         
