@@ -34,9 +34,12 @@ class HeaderUI: UIView {
         
         // 서치바
         searchBar = UISearchBar()
-        searchBar.placeholder = "검색어를 입력하세요"
         searchBar.searchTextField.backgroundColor = .white
-        searchBar.searchBarStyle = .minimal // 선택적으로 검색바 스타일 설정
+        searchBar.searchTextField.textColor = .black
+        searchBar.searchBarStyle = .minimal
+        if let textField = searchBar.value(forKey: "searchField") as? UITextField {
+            textField.attributedPlaceholder = NSAttributedString(string: "검색어를 입력하세요.", attributes: [.foregroundColor: UIColor.lightGray])
+        }
         searchBar.layer.backgroundColor = UIColor(hex: "#cd2323").cgColor
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         
