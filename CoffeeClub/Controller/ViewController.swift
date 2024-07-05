@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         setLayout()
         setupNotificationObservers()
         updateOrderCount()
+        hideKeyboard()
     }
     
     deinit {
@@ -38,7 +39,6 @@ class ViewController: UIViewController {
     
     @objc func updateOrderCount() {
         updateOrderButtonTitle()
-        hideKeyboard()
     }
     
     func setupNotificationObservers() {
