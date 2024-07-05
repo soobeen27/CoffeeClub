@@ -25,15 +25,15 @@ class PaymentVC: UIViewController {
 
 extension PaymentVC: ShoppingListDelegate {
     func shoppingListCount() -> Int {
-        return CoffeeClubList.getShoppingList().count
+        return CoffeeClubModel.getShoppingList().count
     }
     
-    func addShoppingList(index: Int) -> CoffeeClubList{
-        return CoffeeClubList.getShoppingList()[index]
+    func addShoppingList(index: Int) -> CoffeeClubList {
+        return CoffeeClubModel.getShoppingList()[index]
     }
     
     func stepAmount(data: CoffeeClubList, oper: Oper) {
-        CoffeeClubList.stepAmount(oper: oper, coffeeClubList: data)
+        CoffeeClubModel.stepAmount(oper: oper, coffeeClubList: data)
         NotificationCenter.default.post(name: NSNotification.Name("amountChanged"), object: nil)
     }
 }

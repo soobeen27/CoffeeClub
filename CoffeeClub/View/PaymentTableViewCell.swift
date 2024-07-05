@@ -17,6 +17,7 @@ class PaymentTableViewCell: UITableViewCell {
             productImageView.image = UIImage(named: coffeeClubList.imageName)
         }
     }
+    
     lazy var productImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -30,8 +31,7 @@ class PaymentTableViewCell: UITableViewCell {
         btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         btn.backgroundColor = .black
         btn.addAction(UIAction { _ in
-            CoffeeClubList.stepAmount(oper: .plus, coffeeClubList: self.coffeeClubList!)
-            self.coffeeClubList?.amount += 1
+            CoffeeClubModel.stepAmount(oper: .plus, coffeeClubList: self.coffeeClubList!)
             self.postNotification()
         }, for: .touchDown)
         return btn
@@ -44,8 +44,7 @@ class PaymentTableViewCell: UITableViewCell {
         btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = .black
         btn.addAction(UIAction { _ in
-            CoffeeClubList.stepAmount(oper: .minus, coffeeClubList: self.coffeeClubList!)
-            self.coffeeClubList?.amount -= 1
+            CoffeeClubModel.stepAmount(oper: .minus, coffeeClubList: self.coffeeClubList!)
             self.postNotification()
         }, for: .touchDown)
         return btn
@@ -55,7 +54,6 @@ class PaymentTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.backgroundColor = .clear
-//        label.font = .systemFont(ofSize: 20)
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
@@ -71,7 +69,6 @@ class PaymentTableViewCell: UITableViewCell {
     
     let itemName: UILabel = {
         let label = UILabel()
-//        label.font = .systemFont(ofSize: 25)
         label.font = .systemFont(ofSize: 20)
         label.textColor = modalColor.text
         label.textAlignment = .right
@@ -80,21 +77,12 @@ class PaymentTableViewCell: UITableViewCell {
     
     let itemPrice: UILabel = {
         let label = UILabel()
-//        label.font = .systemFont(ofSize: 20, weight: .bold)
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = modalColor.text
         label.textAlignment = .right
         return label
     }()
-    
-//    lazy var vStackView: UIStackView = {
-//       let st = UIStackView(arrangedSubviews: [itemName,itemPrice,stepperStv])
-//        st.axis = .vertical
-//        st.distribution = .equalSpacing
-//        st.spacing = 8
-//        return st
-//    }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setLayout()
@@ -117,7 +105,6 @@ class PaymentTableViewCell: UITableViewCell {
         [productImageView, itemName, itemPrice, stepperStv].forEach {
             self.contentView.addSubview($0)
         }
-        
         productImageView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.size.equalTo(120)
@@ -136,7 +123,6 @@ class PaymentTableViewCell: UITableViewCell {
             $0.trailing.equalToSuperview().offset(-24)
             $0.bottom.equalToSuperview().offset(-16)
         }
-        
         plusBtn.snp.makeConstraints {
             $0.size.equalTo(CGSize(width: 20, height: 20))
         }

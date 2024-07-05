@@ -9,7 +9,7 @@ import SnapKit
 class ViewController: UIViewController {
     var categoriseChangeButton: CategoriseChangeButton?
     var coffeeCollectionView: UICollectionView!
-    var coffeeList: [CoffeeClubList] = CoffeeClubList.list
+    var coffeeList: [CoffeeClubList] = CoffeeClubModel.list
     let orderButton = UIButton(type: .system)
     var headerView: HeaderUI!
     var orderCount: Int = 0 {
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     @objc func updateOrderCount() {
-        orderCount = CoffeeClubList.list.reduce(0) { $0 + $1.amount }
+        orderCount = CoffeeClubModel.list.reduce(0) { $0 + $1.amount }
         hideKeyboard()
     }
     
@@ -145,8 +145,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 extension ViewController: CoffeeCollectionViewCellDelegate {
     func didTapCoffeeImage(coffeeClubList: CoffeeClubList) {
-        CoffeeClubList.addShopingList(coffeeClubList: coffeeClubList)
-        orderCount = CoffeeClubList.getAmount()
+        CoffeeClubModel.addShopingList(coffeeClubList: coffeeClubList)
+        orderCount = CoffeeClubModel.getAmount()
     }
 }
 

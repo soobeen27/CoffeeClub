@@ -7,15 +7,23 @@
 
 import Foundation
 
-struct CoffeeClubList {
+class CoffeeClubList {
     let imageName: String
     let menuName: String
     let menuPrice: Int
-    var amount: Int = 0
     let type: String
+    var amount: Int = 0
+    
+    init(imageName: String, menuName: String, menuPrice: Int, type: String, amount: Int = 0) {
+        self.imageName = imageName
+        self.menuName = menuName
+        self.menuPrice = menuPrice
+        self.type = type
+        self.amount = amount
+    }
 }
 
-extension CoffeeClubList {
+class CoffeeClubModel {
     static var list = [
         CoffeeClubList(imageName: "mint_sparkling", menuName: "민트 스파클링 에스프레소", menuPrice: 6500, type: "coffee"),
         CoffeeClubList(imageName: "salted_caramel_espresso", menuName: "솔티드 캐러멜 에스프레소", menuPrice: 5000, type: "coffee"),
@@ -32,13 +40,14 @@ extension CoffeeClubList {
         CoffeeClubList(imageName: "flapjacks", menuName: "플랩잭", menuPrice: 18000, type: "dessert"),
         CoffeeClubList(imageName: "blueberry_muffin", menuName: "블루베리 머핀", menuPrice: 6000, type: "dessert"),
     ]
+    
     // 상단 탭바 눌렀을 때 리스트 변경
     static func categories(type: String) -> [CoffeeClubList] {
         return list.filter { $0.type == type }
     }
     
     // 수량 0일 때 주문 리스트에서 제거
-    static func getShoppingList() -> [CoffeeClubList]{
+    static func getShoppingList() -> [CoffeeClubList] {
         return list.filter { $0.amount > 0 }
     }
     
