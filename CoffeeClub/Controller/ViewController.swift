@@ -6,11 +6,6 @@
 import UIKit
 import SnapKit
 
-#Preview {
-    let name = ViewController()
-    return name
-}
-
 class ViewController: UIViewController {
     var categoriseChangeButton: CategoriseChangeButton?
     var coffeeCollectionView: UICollectionView!
@@ -20,12 +15,12 @@ class ViewController: UIViewController {
     var orderCount: Int = 0 {
         didSet {
             if orderCount == 0 {
-                           orderButton.setTitle("주문하기", for: .normal)
-                       } else {
-                           orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
-                       }
+                orderButton.setTitle("주문하기", for: .normal)
+            } else {
+                orderButton.setTitle("주문하기(\(orderCount))", for: .normal)
+            }
         }
-    }// 수정하기
+    }
     
     var filteredCoffeeList: [CoffeeClubList] = [] {
         didSet {
@@ -130,21 +125,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoffeeCollectionViewCell", for: indexPath) as! CoffeeCollectionViewCell
         let coffee = filteredCoffeeList.isEmpty ? coffeeList[indexPath.row] : filteredCoffeeList[indexPath.row]
-        cell.configure(coffee: coffee)
+        cell.coffeeClubList = coffee
         cell.delegate = self
         cell.index = indexPath.row
         return cell
-    }
-}
-
-extension ViewController: CoffeeCollectionViewCellDelegate {
-    func didTapCoffeeImage(at index: Int) {
-        orderCount += 1
-        CoffeeClubList.list[index].amount += 1
-        print("order Count: \(orderCount)")
-        
-        // 키보드 내리는 함수
-        view.endEditing(true)
     }
 }
 
@@ -155,10 +139,19 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         let width = availableWidth / 2.24
         return CGSize(width: width, height: width * 1.38)
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
+}
+extension ViewController: CoffeeCollectionViewCellDelegate {
+    func didTapCoffeeImage(coffeeClubList: CoffeeClubList) {
+        CoffeeClubList.addShopingList(coffeeClubList: coffeeClubList)
+        orderCount = CoffeeClubList.getShoppingList().count
+    }
+}
+
+protocol CoffeeCollectionViewCellDelegate: AnyObject {
+    func didTapCoffeeImage(coffeeClubList: CoffeeClubList)
 }
 
 extension ViewController: UISearchBarDelegate {
@@ -175,7 +168,7 @@ extension UIViewController {
     func hideKeyboard() {
         // 제스처 감지
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-            action: #selector(UIViewController.dismissKeyboard))
+                                                                 action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     // 키보드 내리는 함수
