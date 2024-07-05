@@ -9,7 +9,7 @@ import UIKit
 
 class CategoriseChangeButton: NSObject {
     weak var viewController: ViewController?
-    
+    let coffeeList = CoffeeClubModel.shared
     init(viewController: ViewController) {
         self.viewController = viewController
         super.init()
@@ -22,13 +22,13 @@ class CategoriseChangeButton: NSObject {
         
         switch sender.tag {
         case 2:
-            vc.coffeeList = CoffeeClubModel.categories(type: "coffee")
+            vc.menuList = coffeeList.categories(type: "coffee")
         case 3:
-            vc.coffeeList = CoffeeClubModel.categories(type: "decaffeine")
+            vc.menuList = coffeeList.categories(type: "decaffeine")
         case 4:
-            vc.coffeeList = CoffeeClubModel.categories(type: "dessert")
+            vc.menuList = coffeeList.categories(type: "dessert")
         default:
-            vc.coffeeList = CoffeeClubModel.list
+            vc.menuList = coffeeList.list
         }
         vc.coffeeCollectionView.reloadData()
         

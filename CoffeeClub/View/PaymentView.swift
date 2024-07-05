@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class PaymentView: UIView {
-    
+    let coffeeList = CoffeeClubModel.shared
     let tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = modalColor.background
@@ -28,7 +28,7 @@ class PaymentView: UIView {
     
     lazy var totalPrice: UILabel = {
         let label = UILabel()
-        label.text = CoffeeClubModel.getTotalPrice().numberFormat()
+        label.text = coffeeList.getTotalPrice().numberFormat()
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textColor = UIColor(hex: "#cd2323")
         label.textAlignment = .right
@@ -67,7 +67,7 @@ class PaymentView: UIView {
 
     }
     @objc func amountChanged(notification: Notification) {
-        totalPrice.text = CoffeeClubModel.getTotalPrice().numberFormat()
+        totalPrice.text = coffeeList.getTotalPrice().numberFormat()
         tableView.reloadData()
     }
     

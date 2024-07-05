@@ -9,7 +9,8 @@ import SnapKit
 class ViewController: UIViewController {
     var categoriseChangeButton: CategoriseChangeButton?
     var coffeeCollectionView: UICollectionView!
-    var coffeeList: [CoffeeClubList] = CoffeeClubModel.list
+    let coffeeList = CoffeeClubModel.shared
+    var menuList: [CoffeeClubList]!
     let orderButton = UIButton(type: .system)
     var headerView: HeaderUI!
     var orderCount: Int = 0 {
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
         setLayout()
         NotificationCenter.default.addObserver(self, selector: #selector(updateOrderCount), name: NSNotification.Name("amountChanged"), object: nil)
         updateOrderCount()
+        menuList = coffeeList.categories(type: "all")
     }
     
     deinit {
@@ -45,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     @objc func updateOrderCount() {
-        orderCount = CoffeeClubModel.list.reduce(0) { $0 + $1.amount }
+        orderCount = coffeeList.getAmount()
         hideKeyboard()
     }
     
@@ -119,12 +121,12 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredCoffeeList.isEmpty ? coffeeList.count : filteredCoffeeList.count
+        return filteredCoffeeList.isEmpty ? menuList.count : filteredCoffeeList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoffeeCollectionViewCell", for: indexPath) as! CoffeeCollectionViewCell
-        let coffee = filteredCoffeeList.isEmpty ? coffeeList[indexPath.row] : filteredCoffeeList[indexPath.row]
+        let coffee = filteredCoffeeList.isEmpty ? menuList[indexPath.row] : filteredCoffeeList[indexPath.row]
         cell.coffeeClubList = coffee
         cell.delegate = self
         cell.index = indexPath.row
@@ -145,8 +147,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 extension ViewController: CoffeeCollectionViewCellDelegate {
     func didTapCoffeeImage(coffeeClubList: CoffeeClubList) {
-        CoffeeClubModel.addShopingList(coffeeClubList: coffeeClubList)
-        orderCount = CoffeeClubModel.getAmount()
+        coffeeList.addShopingList(coffeeClubList: coffeeClubList)
+        orderCount = coffeeList.getAmount()
     }
 }
 
@@ -159,7 +161,7 @@ extension ViewController: UISearchBarDelegate {
         if searchText.isEmpty {
             filteredCoffeeList = []
         } else {
-            filteredCoffeeList = coffeeList.filter { $0.menuName.contains(searchText) }
+            filteredCoffeeList = coffeeList.list.filter { $0.menuName.contains(searchText) }
         }
     }
 }
