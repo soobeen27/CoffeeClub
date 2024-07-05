@@ -146,7 +146,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 extension ViewController: CoffeeCollectionViewCellDelegate {
     func didTapCoffeeImage(coffeeClubList: CoffeeClubList) {
         CoffeeClubList.addShopingList(coffeeClubList: coffeeClubList)
-        orderCount = CoffeeClubList.getShoppingList().count
+        orderCount = CoffeeClubList.getAmount()
     }
 }
 
@@ -167,8 +167,7 @@ extension ViewController: UISearchBarDelegate {
 extension UIViewController {
     func hideKeyboard() {
         // 제스처 감지
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                                 action: #selector(UIViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     // 키보드 내리는 함수

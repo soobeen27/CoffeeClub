@@ -53,6 +53,14 @@ extension CoffeeClubList {
         }
     }
     
+    static func getAmount() -> Int {
+        var total = 0
+        getShoppingList().forEach {
+            total += $0.amount
+        }
+        return total
+    }
+    
     static func getTotalPrice() -> Int {
         var totalPrice: Int = 0
         getShoppingList().forEach {
