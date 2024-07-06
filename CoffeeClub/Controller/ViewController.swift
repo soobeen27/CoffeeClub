@@ -115,6 +115,7 @@ class ViewController: UIViewController {
             $0.bottom.equalTo(orderButton.snp.top).offset(-10)
         }
     }
+  
     func getActiveWindow() -> UIWindow? {
         return UIApplication.shared.connectedScenes
             .filter { $0.activationState == .foregroundActive }

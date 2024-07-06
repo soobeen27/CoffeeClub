@@ -11,7 +11,7 @@ class CategoriseChangeButton: NSObject {
     
     weak var viewController: ViewController?
     let coffeeList = CoffeeClubModel.shared
-    
+
     init(viewController: ViewController) {
         self.viewController = viewController
         super.init()

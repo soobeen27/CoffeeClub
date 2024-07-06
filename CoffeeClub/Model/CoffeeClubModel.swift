@@ -50,9 +50,8 @@ class CoffeeClubModel {
         }
         return list.filter { $0.type == type }
     }
-    
     // MARK: 주문수량, 가격 관련
-    
+    // 수량 0일 때 주문 리스트에서 제거
     func getShoppingList() -> [CoffeeClubList] {
         return list.filter { $0.amount > 0 }
     }
