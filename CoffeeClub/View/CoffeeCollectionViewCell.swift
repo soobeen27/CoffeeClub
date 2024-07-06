@@ -24,6 +24,7 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
     var menuNameLabel: UILabel!
     var menuPriceLabel: UILabel!
     var index: Int = 0
+    var indexPath: IndexPath?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,22 +38,20 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func handleCoffeeTap() {
-        delegate?.didTapCoffeeImage(coffeeClubList: coffeeClubList!)
+        guard let coffee = coffeeClubList, let indexPath = indexPath else { return }
+        delegate?.didTapCoffeeImage(coffeeClubList: coffee, at: indexPath)
     }
     
     func setLabels() {
-        //커피 사진
         coffeeImage = UIImageView()
         coffeeImage.contentMode = .scaleAspectFill
-
-        //커피 이름
+        
         menuNameLabel = UILabel()
         menuNameLabel.textAlignment = .left
         menuNameLabel.textColor = .darkGray
         menuNameLabel.font = .systemFont(ofSize: 15, weight: .regular)
         menuNameLabel.numberOfLines = 0
-
-        //커피 가격
+        
         menuPriceLabel = UILabel()
         menuPriceLabel.textAlignment = .left
         menuPriceLabel.textColor = UIColor(hex: "#4b4b4b")
@@ -65,30 +64,28 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
         }
         coffeeImage.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16)
-            $0.leading.trailing.equalToSuperview().inset(0)
+            $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(self.frame.width * 0.8)
         }
         
         menuNameLabel.snp.makeConstraints {
             $0.top.equalTo(coffeeImage.snp.bottom).offset(20)
-            $0.leading.trailing.equalToSuperview().inset(10)
+            $0.leading.trailing.equalToSuperview().inset(8)
         }
         menuPriceLabel.snp.makeConstraints {
             $0.top.equalTo(menuNameLabel.snp.bottom).offset(5)
-            $0.leading.trailing.equalToSuperview().inset(10)
+            $0.leading.trailing.equalToSuperview().inset(8)
         }
         
         coffeeImage.layer.cornerRadius = 10
         coffeeImage.clipsToBounds = true
-        
         self.backgroundColor = .white
         self.layer.cornerRadius = 10
         self.contentView.layer.masksToBounds = false
         self.contentView.layer.cornerRadius = 10
-        
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.1
-        self.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.layer.shadowOffset = CGSize(width: 4, height: 4)
         self.layer.shadowRadius = 4
         cellShadow()
     }

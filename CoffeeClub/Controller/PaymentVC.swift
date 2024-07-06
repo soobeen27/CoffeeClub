@@ -8,7 +8,7 @@ import SnapKit
 
 class PaymentVC: UIViewController {
     var paymentView: PaymentView!
-    
+    let coffeeList = CoffeeClubModel.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         if let sheetPresentationController = sheetPresentationController {
@@ -25,15 +25,15 @@ class PaymentVC: UIViewController {
 
 extension PaymentVC: ShoppingListDelegate {
     func shoppingListCount() -> Int {
-        return CoffeeClubModel.getShoppingList().count
+        return coffeeList.getShoppingList().count
     }
     
     func addShoppingList(index: Int) -> CoffeeClubList {
-        return CoffeeClubModel.getShoppingList()[index]
+        return coffeeList.getShoppingList()[index]
     }
     
     func stepAmount(data: CoffeeClubList, oper: Oper) {
-        CoffeeClubModel.stepAmount(oper: oper, coffeeClubList: data)
+        coffeeList.stepAmount(oper: oper, coffeeClubList: data)
         NotificationCenter.default.post(name: NSNotification.Name("amountChanged"), object: nil)
     }
 }

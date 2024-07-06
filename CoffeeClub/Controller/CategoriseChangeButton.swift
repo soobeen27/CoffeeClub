@@ -8,7 +8,9 @@
 import UIKit
 
 class CategoriseChangeButton: NSObject {
+    
     weak var viewController: ViewController?
+    let coffeeList = CoffeeClubModel.shared
     
     init(viewController: ViewController) {
         self.viewController = viewController
@@ -17,20 +19,18 @@ class CategoriseChangeButton: NSObject {
     
     @objc func buttonTapped(_ sender: UIButton) {
         guard let vc = viewController else { return }
-        
         vc.headerView.thisButtonTap(selectedButton: sender)
         
         switch sender.tag {
         case 2:
-            vc.coffeeList = CoffeeClubModel.categories(type: "coffee")
+            vc.menuList = coffeeList.categories(type: "coffee")
         case 3:
-            vc.coffeeList = CoffeeClubModel.categories(type: "decaffeine")
+            vc.menuList = coffeeList.categories(type: "decaffeine")
         case 4:
-            vc.coffeeList = CoffeeClubModel.categories(type: "dessert")
+            vc.menuList = coffeeList.categories(type: "dessert")
         default:
-            vc.coffeeList = CoffeeClubModel.list
+            vc.menuList = coffeeList.list
         }
-        vc.coffeeCollectionView.reloadData()
-        
+        vc.animateCollectionViewTransition(to: vc.menuList)
     }
 }

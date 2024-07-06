@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CoffeeClubList {
+struct CoffeeClubList {
     let imageName: String
     let menuName: String
     let menuPrice: Int
@@ -24,8 +24,11 @@ class CoffeeClubList {
 }
 
 class CoffeeClubModel {
-    static var list = [
-        CoffeeClubList(imageName: "mint_sparkling", menuName: "민트 스파클링 에스프레소", menuPrice: 6500, type: "coffee"),
+    static let shared = CoffeeClubModel()
+    private init() {}
+    
+    var list = [
+        CoffeeClubList(imageName: "mint_sparkling2", menuName: "민트 스파클링 에스프레소", menuPrice: 6500, type: "coffee"),
         CoffeeClubList(imageName: "salted_caramel_espresso", menuName: "솔티드 캐러멜 에스프레소", menuPrice: 5000, type: "coffee"),
         CoffeeClubList(imageName: "iced_peppermint_mocha", menuName: "아이스 페퍼민트 모카", menuPrice: 5500, type: "coffee"),
         CoffeeClubList(imageName: "viet_iced", menuName: "베트남 아이스 커피", menuPrice: 5000, type: "coffee"),
@@ -40,18 +43,21 @@ class CoffeeClubModel {
         CoffeeClubList(imageName: "flapjacks", menuName: "플랩잭", menuPrice: 18000, type: "dessert"),
         CoffeeClubList(imageName: "blueberry_muffin", menuName: "블루베리 머핀", menuPrice: 6000, type: "dessert"),
     ]
-    
-    // 상단 탭바 눌렀을 때 리스트 변경
-    static func categories(type: String) -> [CoffeeClubList] {
+    // MARK: 탭버튼에 따른 리스트 변경
+    func categories(type: String) -> [CoffeeClubList] {
+        if type == "all" {
+            return list
+        }
         return list.filter { $0.type == type }
     }
     
-    // 수량 0일 때 주문 리스트에서 제거
-    static func getShoppingList() -> [CoffeeClubList] {
+    // MARK: 주문수량, 가격 관련
+    
+    func getShoppingList() -> [CoffeeClubList] {
         return list.filter { $0.amount > 0 }
     }
     
-    static func addShopingList(coffeeClubList: CoffeeClubList) {
+    func addShopingList(coffeeClubList: CoffeeClubList) {
         for i in 0..<list.count {
             if list[i].imageName == coffeeClubList.imageName {
                 list[i].amount += 1
@@ -59,7 +65,7 @@ class CoffeeClubModel {
         }
     }
     
-    static func getAmount() -> Int {
+    func getAmount() -> Int {
         var total = 0
         getShoppingList().forEach {
             total += $0.amount
@@ -67,7 +73,7 @@ class CoffeeClubModel {
         return total
     }
     
-    static func getTotalPrice() -> Int {
+    func getTotalPrice() -> Int {
         var totalPrice: Int = 0
         getShoppingList().forEach {
             totalPrice += ($0.menuPrice * $0.amount)
@@ -75,7 +81,7 @@ class CoffeeClubModel {
         return totalPrice
     }
     
-    static func stepAmount(oper: Oper, coffeeClubList: CoffeeClubList) {
+    func stepAmount(oper: Oper, coffeeClubList: CoffeeClubList) {
         for i in 0..<list.count {
             if list[i].imageName == coffeeClubList.imageName {
                 oper == .plus ? (list[i].amount += 1) : (list[i].amount -= 1)
