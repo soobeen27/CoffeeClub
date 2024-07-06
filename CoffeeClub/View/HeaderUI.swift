@@ -14,14 +14,14 @@ class HeaderUI: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupHeader()
+        self.backgroundColor = UIColor(hex: "#cd2323")
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: 로고,서치바
-    lazy var logoLabel: UILabel = {
+    let logoLabel: UILabel = {
         let label = UILabel()
         label.text = "CoffeeClub"
         label.textAlignment = .center
@@ -31,7 +31,7 @@ class HeaderUI: UIView {
         return label
     }()
     
-    lazy var searchBar: UISearchBar = {
+    let searchBar: UISearchBar = {
         let bar = UISearchBar()
         bar.searchTextField.backgroundColor = .white
         bar.searchTextField.textColor = .black
@@ -85,22 +85,11 @@ class HeaderUI: UIView {
             stackView.isLayoutMarginsRelativeArrangement = true
             return stackView
         }()
-
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor(hex: "#cd2323")
-        
-        // 헤더 뷰를 메인 뷰에 추가
-        self.addSubview(headerView)
-        headerView.addSubview(logoLabel)
-        headerView.addSubview(stackView)
-        headerView.addSubview(searchBar)
-        
-        // MARK: - Auto Layout
-        headerView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.height.equalTo(180)
+        [logoLabel, stackView, searchBar].forEach {
+            self.addSubview($0)
         }
         
+        // MARK: - Auto Layout
         logoLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(60)
             $0.leading.trailing.equalToSuperview()
@@ -147,21 +136,4 @@ class HeaderUI: UIView {
         }
     }
     
-}
-
-
-extension UIView {
-    func addBottomBorder(with color: UIColor, andWidth borderWidth: CGFloat) {
-        let border = UIView()
-        border.backgroundColor = color
-        border.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(border)
-        
-        NSLayoutConstraint.activate([
-            border.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            border.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            border.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            border.heightAnchor.constraint(equalToConstant: borderWidth)
-        ])
-    }
 }

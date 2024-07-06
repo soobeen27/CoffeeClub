@@ -98,7 +98,3 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
         self.layer.shadowPath = shadowPath.cgPath
     }
 }
-
-
-
-

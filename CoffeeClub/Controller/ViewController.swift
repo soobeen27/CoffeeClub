@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         headerView = HeaderUI(frame: .zero)
         view.addSubview(headerView)
         categoriseChangeButton = CategoriseChangeButton(viewController: self)
-        headerView.categoriseChangeButton = categoriseChangeButton 
+        headerView.categoriseChangeButton = categoriseChangeButton
         headerView.setupHeader()
     }
     

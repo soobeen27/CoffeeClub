@@ -46,3 +46,19 @@ extension UIView {
         self.layer.shadowOpacity = 0.4
     }
 }
+
+extension UIView {
+    func addBottomBorder(with color: UIColor, andWidth borderWidth: CGFloat) {
+        let border = UIView()
+        border.backgroundColor = color
+        border.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(border)
+        
+        NSLayoutConstraint.activate([
+            border.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            border.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            border.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            border.heightAnchor.constraint(equalToConstant: borderWidth)
+        ])
+    }
+}
