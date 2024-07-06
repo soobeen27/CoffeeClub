@@ -44,10 +44,6 @@ class PaymentView: UIView {
     
     let paymentBtn: UIButton = {
         let btn = UIButton()
-//        btn.setTitle("결제하기", for: .normal)
-//        btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
-//        btn.setTitleColor(.white, for: .normal)
-//        btn.backgroundColor = .black
         btn.setTitle("결제하기", for: .normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         btn.backgroundColor = UIColor(hex: "#cd2323")
@@ -100,6 +96,7 @@ class PaymentView: UIView {
             $0.leading.trailing.equalToSuperview().inset(0)
             $0.top.equalToSuperview().offset(16)
         }
+        
         hSTV.snp.makeConstraints {
             $0.top.equalTo(tableView.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(26)

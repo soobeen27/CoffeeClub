@@ -70,7 +70,7 @@ class PaymentTableViewCell: UITableViewCell {
     
     let itemName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
+        label.font = .systemFont(ofSize: 18)
         label.textColor = modalColor.text
         label.textAlignment = .right
         return label
@@ -107,7 +107,7 @@ class PaymentTableViewCell: UITableViewCell {
             self.contentView.addSubview($0)
         }
         productImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview()
+            $0.leading.equalToSuperview().offset(20)
             $0.size.equalTo(120)
             $0.centerY.equalToSuperview()
         }

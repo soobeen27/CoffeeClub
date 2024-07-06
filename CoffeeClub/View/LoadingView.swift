@@ -17,13 +17,10 @@ class LoadingView: UIView {
     
     private func setupView() {
         self.addSubview(animationView)
-        
-        // 애니메이션 뷰를 화면 전체로 설정
+        // 애니메이션
         animationView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    
-        // 애니메이션 재생
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()

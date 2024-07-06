@@ -22,10 +22,10 @@ class ViewController: UIViewController {
             }
         }
     }
-    
     var filteredCoffeeList: [CoffeeClubList] = [] {
         didSet {
             coffeeCollectionView.reloadData()
+            animateCollectionViewCells(in: coffeeCollectionView)
         }
     }
     
@@ -50,13 +50,13 @@ class ViewController: UIViewController {
         orderCount = coffeeList.getAmount()
         hideKeyboard()
     }
-    
+
     // 카테고리 변경 탭을 헤더 뷰에 연결
     func setupHeader() {
         headerView = HeaderUI(frame: .zero)
         view.addSubview(headerView)
         categoriseChangeButton = CategoriseChangeButton(viewController: self)
-        headerView.categoriseChangeButton = categoriseChangeButton
+        headerView.categoriseChangeButton = categoriseChangeButton 
         headerView.setupHeader()
     }
     
@@ -87,13 +87,11 @@ class ViewController: UIViewController {
         coffeeCollectionView.backgroundColor = UIColor(hex: "#f4f0ed")
         coffeeCollectionView.dataSource = self
         coffeeCollectionView.delegate = self
-        
-        // 컬렉션뷰 셀 등록
         coffeeCollectionView.register(CoffeeCollectionViewCell.self, forCellWithReuseIdentifier: "CoffeeCollectionViewCell")
         view.addSubview(coffeeCollectionView)
     }
     
-    // MARK: 오토레이아웃은 모아서!
+    // MARK: - Auto Layout
     func setLayout() {
         [headerView, orderButton, coffeeCollectionView].forEach {
             self.view.addSubview($0)
@@ -102,7 +100,7 @@ class ViewController: UIViewController {
         headerView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(190)
+            $0.height.equalTo(180)
         }
         
         orderButton.snp.makeConstraints {
@@ -112,48 +110,25 @@ class ViewController: UIViewController {
         }
         
         coffeeCollectionView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(35)
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(headerView.snp.bottom).offset(25)
             $0.bottom.equalTo(orderButton.snp.top).offset(-10)
         }
     }
-}
-
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredCoffeeList.isEmpty ? menuList.count : filteredCoffeeList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoffeeCollectionViewCell", for: indexPath) as! CoffeeCollectionViewCell
-        let coffee = filteredCoffeeList.isEmpty ? menuList[indexPath.row] : filteredCoffeeList[indexPath.row]
-        cell.coffeeClubList = coffee
-        cell.delegate = self
-        cell.index = indexPath.row
-        return cell
+  
+    func getActiveWindow() -> UIWindow? {
+        return UIApplication.shared.connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .compactMap { $0 as? UIWindowScene }
+            .first?.windows
+            .filter { $0.isKeyWindow }
+            .first
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 10
-        let availableWidth = view.frame.size.width - padding
-        let width = availableWidth / 2.24
-        return CGSize(width: width, height: width * 1.38)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-    }
-}
-extension ViewController: CoffeeCollectionViewCellDelegate {
-    func didTapCoffeeImage(coffeeClubList: CoffeeClubList) {
-        coffeeList.addShopingList(coffeeClubList: coffeeClubList)
-        orderCount = coffeeList.getAmount()
-    }
-}
-
+// MARK: - 서치바 검색어에 따른 필터링
 protocol CoffeeCollectionViewCellDelegate: AnyObject {
-    func didTapCoffeeImage(coffeeClubList: CoffeeClubList)
+    func didTapCoffeeImage(coffeeClubList: CoffeeClubList, at indexPath: IndexPath)
 }
 
 extension ViewController: UISearchBarDelegate {
@@ -163,16 +138,16 @@ extension ViewController: UISearchBarDelegate {
         } else {
             filteredCoffeeList = coffeeList.list.filter { $0.menuName.contains(searchText) }
         }
+        animateCollectionViewCells(in: coffeeCollectionView) // 애니메이션 호출
     }
 }
 
+// MARK: - 키보드 동작 관련
 extension UIViewController {
     func hideKeyboard() {
-        // 제스처 감지
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
-    // 키보드 내리는 함수
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
