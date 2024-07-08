@@ -1,4 +1,3 @@
 # 팀프로젝트
 
-[![Video Label](<img width="926" alt="image" src="https://github.com/soobeen27/CoffeeClub/assets/68931740/bebcf7a1-717a-4e41-90c2-bd5be5b7670f">
-g)](https://www.youtube.com/watch?v=BuXBwfBpQIs)
+![RPReplay_Final1720403230-2](https://github.com/soobeen27/CoffeeClub/assets/68931740/27b1b9b3-1c1e-4081-9b60-091a9f90b01e)
