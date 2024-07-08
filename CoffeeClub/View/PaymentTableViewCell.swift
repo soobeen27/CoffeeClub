@@ -6,18 +6,11 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class PaymentTableViewCell: UITableViewCell {
-    let coffeeList = CoffeeClubModel.shared
-    var coffeeClubList: CoffeeClubList? {
-        didSet {
-            guard let coffeeClubList = coffeeClubList else { return }
-            itemName.text = "\(coffeeClubList.menuName)"
-            itemPrice.text = (coffeeClubList.menuPrice * coffeeClubList.amount).numberFormat()
-            amountLabel.text = String(coffeeClubList.amount)
-            productImageView.image = UIImage(named: coffeeClubList.imageName)
-        }
-    }
+    var disposeBag = DisposeBag()
     
     lazy var productImageView: UIImageView = {
         let iv = UIImageView()
@@ -31,10 +24,6 @@ class PaymentTableViewCell: UITableViewCell {
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         btn.backgroundColor = .black
-        btn.addAction(UIAction { _ in
-            self.coffeeList.stepAmount(oper: .plus, coffeeClubList: self.coffeeClubList!)
-            self.postNotification()
-        }, for: .touchDown)
         return btn
     }()
     
@@ -44,14 +33,10 @@ class PaymentTableViewCell: UITableViewCell {
         btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = .black
-        btn.addAction(UIAction { _ in
-            self.coffeeList.stepAmount(oper: .minus, coffeeClubList: self.coffeeClubList!)
-            self.postNotification()
-        }, for: .touchDown)
         return btn
     }()
     
-    private lazy var amountLabel: UILabel = {
+    lazy var amountLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.backgroundColor = .clear
@@ -133,4 +118,9 @@ class PaymentTableViewCell: UITableViewCell {
         plusBtn.layer.cornerRadius = 10
         minusBtn.layer.cornerRadius = 10
     }
+    
+    override func prepareForReuse() {
+         super.prepareForReuse()
+         disposeBag = DisposeBag()
+     }
 }

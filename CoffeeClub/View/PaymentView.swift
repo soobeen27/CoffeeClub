@@ -7,9 +7,12 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class PaymentView: UIView {
     let coffeeList = CoffeeClubModel.shared
+    
     let tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = modalColor.background
@@ -28,7 +31,6 @@ class PaymentView: UIView {
     
     lazy var totalPrice: UILabel = {
         let label = UILabel()
-        label.text = coffeeList.getTotalPrice().numberFormat()
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textColor = UIColor(hex: "#cd2323")
         label.textAlignment = .right
@@ -56,29 +58,6 @@ class PaymentView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayout()
-        tableView.dataSource = self
-        tableView.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(amountChanged(notification:)), name: NSNotification.Name("amountChanged"), object: nil)
-        paymentBtn.addTarget(self, action: #selector(paymentButtonTapped), for: .touchUpInside)
-
-    }
-    @objc func amountChanged(notification: Notification) {
-        totalPrice.text = coffeeList.getTotalPrice().numberFormat()
-        tableView.reloadData()
-    }
-    
-    @objc func paymentButtonTapped() {
-        showPaymentAlert()
-    }
-    
-    func showPaymentAlert() {
-        let alertController = UIAlertController(title: "결제 완료", message: "결제가 성공적으로 완료되었습니다.", preferredStyle: .alert)
-        let okAlert = UIAlertAction(title: "확인", style: .default)
-        alertController.addAction(okAlert)
-        
-        if let viewController = self.delegate as? UIViewController {
-            viewController.present(alertController, animated: true, completion: nil)
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -109,20 +88,6 @@ class PaymentView: UIView {
             $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-10)
             $0.height.equalTo(50)
         }
-    }
-}
-
-extension PaymentView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = delegate?.shoppingListCount() else { return 0 }
-        return count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
-        cell.selectionStyle = .none
-        cell.coffeeClubList = delegate?.addShoppingList(index: indexPath.row)
-        return cell
     }
 }
 

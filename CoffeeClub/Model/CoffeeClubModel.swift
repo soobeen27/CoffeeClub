@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct CoffeeClubList {
     let imageName: String
@@ -25,7 +27,10 @@ struct CoffeeClubList {
 
 class CoffeeClubModel {
     static let shared = CoffeeClubModel()
-    private init() {}
+    private init() { }
+    
+    lazy var rxList = BehaviorRelay<[CoffeeClubList]>(value: list)
+    lazy var shoppingList = BehaviorRelay<[CoffeeClubList]>(value: getShoppingList())
     
     var list = [
         CoffeeClubList(imageName: "mint_sparkling2", menuName: "민트 스파클링 에스프레소", menuPrice: 6500, type: "coffee"),
@@ -42,7 +47,12 @@ class CoffeeClubModel {
         CoffeeClubList(imageName: "ice_cream_kitkat", menuName: "킷캣 & 아이스크림", menuPrice: 12000, type: "dessert"),
         CoffeeClubList(imageName: "flapjacks", menuName: "플랩잭", menuPrice: 18000, type: "dessert"),
         CoffeeClubList(imageName: "blueberry_muffin", menuName: "블루베리 머핀", menuPrice: 6000, type: "dessert"),
-    ]
+    ] {
+        didSet {
+            rxList.accept(list)
+        }
+    }
+
     // MARK: 탭버튼에 따른 리스트 변경
     func categories(type: String) -> [CoffeeClubList] {
         if type == "all" {
@@ -79,10 +89,9 @@ class CoffeeClubModel {
         }
         return totalPrice
     }
-    
-    func stepAmount(oper: Oper, coffeeClubList: CoffeeClubList) {
+    func stepAmount(oper: Oper, menuName: String) {
         for i in 0..<list.count {
-            if list[i].imageName == coffeeClubList.imageName {
+            if list[i].menuName == menuName {
                 oper == .plus ? (list[i].amount += 1) : (list[i].amount -= 1)
             }
         }

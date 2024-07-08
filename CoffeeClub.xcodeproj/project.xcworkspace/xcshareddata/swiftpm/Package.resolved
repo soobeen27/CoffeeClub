@@ -1,5 +1,5 @@
 {
-  "originHash" : "dd3c8f0f2500525975f202c4be1c8a673c6655791220b2384434e18320a3cb11",
+  "originHash" : "1f7245cad718e797b6c3c1ebdc283ed3836a9d67189aa7f9e1af022387012283",
   "pins" : [
     {
       "identity" : "lottie-ios",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "769b88d83a42ca8d5572b020c96f47e3690b3796",
         "version" : "4.4.3"
+      }
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift.git",
+      "state" : {
+        "revision" : "b06a8c8596e4c3e8e7788e08e720e3248563ce6a",
+        "version" : "6.7.1"
       }
     },
     {

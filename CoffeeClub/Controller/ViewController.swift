@@ -5,6 +5,8 @@
 //
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
     var categoriseChangeButton: CategoriseChangeButton?
@@ -22,6 +24,8 @@ class ViewController: UIViewController {
             }
         }
     }
+    let disposeBag = DisposeBag()
+    
     var filteredCoffeeList: [CoffeeClubList] = [] {
         didSet {
             coffeeCollectionView.reloadData()
@@ -37,20 +41,16 @@ class ViewController: UIViewController {
         setupCollectionView()
         setupOrderArea()
         setLayout()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateOrderCount), name: NSNotification.Name("amountChanged"), object: nil)
         updateOrderCount()
         menuList = coffeeList.categories(type: "all")
+        
+    }
+    func updateOrderCount() {
+        coffeeList.shoppingList.subscribe(onNext: { _ in
+            self.orderCount = self.coffeeList.shoppingList.value.count
+        }).disposed(by: disposeBag)
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func updateOrderCount() {
-        orderCount = coffeeList.getAmount()
-        hideKeyboard()
-    }
-
     // 카테고리 변경 탭을 헤더 뷰에 연결
     func setupHeader() {
         headerView = HeaderUI(frame: .zero)

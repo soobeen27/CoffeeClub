@@ -30,6 +30,8 @@
 		F44FEC812C3438E2006EB88F /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC802C3438E2006EB88F /* PaymentVC.swift */; };
 		F44FEC832C343916006EB88F /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC822C343916006EB88F /* PaymentTableViewCell.swift */; };
 		F44FEC852C345378006EB88F /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FEC842C345378006EB88F /* PaymentView.swift */; };
+		F44FEC8E2C3A76DC006EB88F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F44FEC8D2C3A76DC006EB88F /* RxCocoa */; };
+		F44FEC902C3A76E0006EB88F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F44FEC8F2C3A76E0006EB88F /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44FEC8E2C3A76DC006EB88F /* RxCocoa in Frameworks */,
 				43805EA22C361417008379B8 /* SnapKit in Frameworks */,
+				F44FEC902C3A76E0006EB88F /* RxSwift in Frameworks */,
 				C2E4C8372C366A4900E34387 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +90,7 @@
 			children = (
 				F42A74102C33BACB00763AEA /* CoffeeClub */,
 				F42A740F2C33BACB00763AEA /* Products */,
+				F44FEC8C2C3A76DC006EB88F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +161,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		F44FEC8C2C3A76DC006EB88F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,6 +187,8 @@
 			packageProductDependencies = (
 				43805EA12C361417008379B8 /* SnapKit */,
 				C2E4C8362C366A4900E34387 /* Lottie */,
+				F44FEC8D2C3A76DC006EB88F /* RxCocoa */,
+				F44FEC8F2C3A76E0006EB88F /* RxSwift */,
 			);
 			productName = CoffeeClub;
 			productReference = F42A740E2C33BACB00763AEA /* CoffeeClub.app */;
@@ -207,6 +221,7 @@
 			packageReferences = (
 				F42A742C2C33C22700763AEA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C2E4C82D2C3668B000E34387 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				F44FEC8B2C3A76D0006EB88F /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = F42A740F2C33BACB00763AEA /* Products */;
 			projectDirPath = "";
@@ -474,6 +489,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		F44FEC8B2C3A76D0006EB88F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -486,6 +509,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C2E4C82D2C3668B000E34387 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		F44FEC8D2C3A76DC006EB88F /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F44FEC8B2C3A76D0006EB88F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		F44FEC8F2C3A76E0006EB88F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F44FEC8B2C3A76D0006EB88F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
